@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour {
     private float bulletSpeed = 1000.0f;
     bool isFiredPistol = false;
     bool isFiredShotgun = false;
+    public float bulletDamage;
     public void FixedUpdate()
     {
         if(isFiredPistol)
@@ -35,10 +36,11 @@ public class Bullet : MonoBehaviour {
     }
 
 
-    public void SetProperties(float BulletSpeed, float LifeTime)
+    public void SetProperties(float BulletSpeed, float LifeTime, float BulletDamage)
     {
         this.lifeTime = LifeTime;
         this.bulletSpeed = BulletSpeed;
+        this.bulletDamage = BulletDamage;
     }
 
     public void FireBullet(BulletType bulletType)

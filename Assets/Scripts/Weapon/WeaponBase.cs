@@ -7,6 +7,7 @@ public class WeaponBase : MonoBehaviour {
     public WeaponManager parent;
     protected float BulletSpeed;
     protected float BulletLifeTime;
+    protected float BulletDamage;
 
     public WeaponBase(WeaponManager parent)
     {

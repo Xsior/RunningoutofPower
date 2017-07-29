@@ -12,6 +12,8 @@ public class WeaponManager : MonoBehaviour
     private Cooldown pistolCooldown;
     private Cooldown shotgunCooldown;
     private Cooldown reloadCooldown;
+    private Cooldown hammerCooldown;
+    public GameObject triggeredEnemy;
     public SObject Cooldowns;
 
     SelectedWeaponType currentWeapon;
@@ -22,6 +24,8 @@ public class WeaponManager : MonoBehaviour
         pistolCooldown = GetComponents<Cooldown>()[0];
         shotgunCooldown = GetComponents<Cooldown>()[1];
         reloadCooldown = GetComponents<Cooldown>()[2];
+        hammerCooldown = GetComponents<Cooldown>()[3];
+        triggeredEnemy = null;
     }
     public WeaponManager()
     {
@@ -32,13 +36,14 @@ public class WeaponManager : MonoBehaviour
         pistolCooldown.SetCooldownTime(Cooldowns.PistolCooldown);
         shotgunCooldown.SetCooldownTime(Cooldowns.ShotgunCooldown);
         reloadCooldown.SetCooldownTime(Cooldowns.Reloadcooldown);
+        hammerCooldown.SetCooldownTime(Cooldowns.HammerCooldown);
     }
     // Update is called once per frame
     void Update()
     {
-        if(reloadCooldown.canUse)
+        if (reloadCooldown.canUse)
         {
-            if(Input.GetKeyUp(KeyCode.Alpha1))
+            if (Input.GetKeyUp(KeyCode.Alpha1))
             {
                 EquippedWeapon = new Pistol(this);
                 currentWeapon = SelectedWeaponType.Pistol;
@@ -65,7 +70,7 @@ public class WeaponManager : MonoBehaviour
             {
                 case SelectedWeaponType.Pistol:
                     {
-                        if(pistolCooldown.canUse)
+                        if (pistolCooldown.canUse)
                         {
                             pistolCooldown.startTimer();
                             EquippedWeapon.Attack();
@@ -81,6 +86,15 @@ public class WeaponManager : MonoBehaviour
                         }
                     }
                     break;
+                case SelectedWeaponType.Hammer:
+                    {
+                        if (hammerCooldown.canUse)
+                        {
+                            hammerCooldown.startTimer();
+                            EquippedWeapon.Attack();
+                        }
+                    }
+                    break;
                 default:
                     break;
             }
@@ -88,8 +102,18 @@ public class WeaponManager : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("xd");
+        if (collision.tag == "Enemy")
+        {
+            triggeredEnemy = collision.gameObject;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            triggeredEnemy = null;
+        }
     }
 }

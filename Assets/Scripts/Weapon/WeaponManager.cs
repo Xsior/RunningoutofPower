@@ -64,7 +64,7 @@ public class WeaponManager : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             switch (currentWeapon)
             {

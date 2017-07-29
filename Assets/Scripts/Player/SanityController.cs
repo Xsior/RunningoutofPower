@@ -20,7 +20,7 @@ public class SanityController : MonoBehaviour
             if (value < 0)
             {
                 currentSanity = 0;
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
             }
             else
             {

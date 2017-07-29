@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class SanityController : MonoBehaviour
 {
+    [SerializeField]
     float startingSanity = 100;
     float currentSanity;
     float sanityTimer = 2f;
-    float sanityLostAmount = 10f;
+    [SerializeField]
+    float sanityLostAmount = 1f;
     Image sanityBar;
 
     public float CurrentSanity
@@ -30,29 +32,25 @@ public class SanityController : MonoBehaviour
         }
     }
 
-	void Start ()
+    void Start()
     {
         sanityBar = GameObject.FindGameObjectWithTag("Canvas").transform.Find("SanityBar").GetComponent<Image>();
         CurrentSanity = startingSanity;
-        
+
     }
-	void Update ()
+    void Update()
     {
-        ConstantSanityLost();
+        ConstantSanityLoss();
     }
 
-    public void ConstantSanityLost()
+    public void ConstantSanityLoss()
     {
-        if (sanityTimer > 0)
-        {
-            sanityTimer -= Time.deltaTime;
-        }
-        else
-        {
-            sanityTimer = 2f;
-            CurrentSanity -= sanityLostAmount;
-        }
-
+        CurrentSanity -= sanityLostAmount * Time.deltaTime;
+    }
+    public void SafeHaven()
+    {
+        if(currentSanity < startingSanity)
+        CurrentSanity += 4 * sanityLostAmount * Time.deltaTime;
     }
 
     public void DealSanityDamage(float sanityDamage)

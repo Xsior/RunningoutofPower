@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 114750345661435352}
   - component: {fileID: 23658446239041238}
   - component: {fileID: 33180799859972432}
+  - component: {fileID: 58804775030099332}
+  - component: {fileID: 114635072398738482}
   m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
@@ -55,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902027942703564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.18, y: 3.17, z: 0}
+  m_LocalPosition: {x: 3.2760382, y: -0.64548254, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479173184791408}
@@ -70,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 1715054474556160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.004, y: -0.004, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 4381978940899532}
   m_RootOrder: 0
@@ -129,6 +131,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!58 &58804775030099332
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715054474556160}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114192487984123918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,6 +173,20 @@ MonoBehaviour:
   cd: {fileID: 114192487984123918}
   player: {fileID: 0}
   light: {fileID: 1715054474556160}
+--- !u!114 &114635072398738482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715054474556160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c16748491bd826498f34fed4723f24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &114750345661435352
 MonoBehaviour:
   m_ObjectHideFlags: 1

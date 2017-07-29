@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 114479061711762372}
   - component: {fileID: 114423064075580632}
   - component: {fileID: 114892956730953310}
+  - component: {fileID: 81885167297475256}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -68,6 +69,7 @@ GameObject:
   - component: {fileID: 23839319768414194}
   - component: {fileID: 33932111818826654}
   - component: {fileID: 60601708666217994}
+  - component: {fileID: 114174891392936486}
   m_Layer: 8
   m_Name: Flashlight
   m_TagString: Untagged
@@ -360,6 +362,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!81 &81885167297475256
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
 --- !u!95 &95749513543864652
 Animator:
   serializedVersion: 3
@@ -377,6 +386,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114174891392936486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385793878972092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9eeebc310d0e4f4cbb79292ad2b1ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114242246791678416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,6 +487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingSanity: 100
   sanityLostAmount: 1
+  sanityLightRatio: 1
+  sanityEnemyRatio: 1
 --- !u!114 &114448091668208586
 MonoBehaviour:
   m_ObjectHideFlags: 1

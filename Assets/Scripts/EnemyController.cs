@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
     public Cooldown attackCooldown;
     float attackDamage = 10;
     float startingHp = 100;
-    float hp; 
+    float hp;
+    float speeedboost = 1f;
     float Hp
     {
         get { return hp; }
@@ -20,8 +21,17 @@ public class EnemyController : MonoBehaviour
             if (hp <= 0) gameObject.SetActive(false);
         }
     }
-	// Use this for initialization
-	void Start ()
+    public void SpeedBoost()
+    {
+        speeedboost = 1.6f;
+    }
+    public void SpeedNo()
+    {
+        speeedboost = 1f;
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         attackCooldown = GetComponent<Cooldown>();
@@ -62,7 +72,7 @@ public class EnemyController : MonoBehaviour
         {
             
 
-            GetComponent<Rigidbody2D>().velocity = (direction * 250 * Time.deltaTime);
+            GetComponent<Rigidbody2D>().velocity = (direction * 250 * speeedboost * Time.deltaTime);
         }
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }

@@ -12,10 +12,11 @@ public class Hammer : WeaponBase
 
     public override void Attack()
     {
-        base.Attack();
+        //base.Attack();
         if (parent.triggeredEnemy != null)
         {
             parent.triggeredEnemy.GetComponent<EnemyController>().DealDamage(50);
+            Debug.Log("chuj");
         }
 
     }

@@ -9,13 +9,25 @@ public class EnemyController : MonoBehaviour
     int detectionRange = 3;
     public Cooldown attackCooldown;
     float attackDamage = 10;
+    float startingHp = 100;
+    float hp; 
+    float Hp
+    {
+        get { return hp; }
+        set
+        {
+            hp = value;
+            if (hp <= 0) gameObject.SetActive(false);
+        }
+    }
 	// Use this for initialization
 	void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         attackCooldown = GetComponent<Cooldown>();
+        hp = startingHp;
         //attackCooldown.SetCooldownTime(2f);
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -84,6 +96,6 @@ public class EnemyController : MonoBehaviour
 
     public void DealDamage(float damage)
     {
-        Debug.Log("OOOO AAAAAA");
+        Hp -= damage;
     }
 }

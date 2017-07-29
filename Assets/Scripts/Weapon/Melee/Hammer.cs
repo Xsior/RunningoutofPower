@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hammer : MonoBehaviour {
+public class Hammer : WeaponBase {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public Hammer(WeaponManager parent) : base(parent)
+    {
+
+    }
+
+    public override void Attack()
+    {
+        base.Attack();
+
+
+    }
 }

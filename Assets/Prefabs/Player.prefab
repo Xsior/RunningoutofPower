@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4094150384786150}
   - component: {fileID: 212270032038802062}
-  - component: {fileID: 114597552320682374}
   - component: {fileID: 50561806328758986}
   - component: {fileID: 58678301262431246}
+  - component: {fileID: 114614591380390652}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -77,7 +77,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4094150384786150}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4094150384786150
 Transform:
@@ -89,8 +89,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4794061543679234}
   - {fileID: 4043292138816924}
+  - {fileID: 4794061543679234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105,7 +105,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4094150384786150}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23751185628350728
 MeshRenderer:
@@ -254,7 +254,7 @@ MonoBehaviour:
   Material: {fileID: 2100000, guid: eba84647c4f5b25448790591a30ca17e, type: 2}
   LightOrigin: {x: 0, y: 0, z: 0.5}
   Shape: 0
---- !u!114 &114597552320682374
+--- !u!114 &114614591380390652
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -262,10 +262,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248582741500692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7fe55be05942d439003daa9a268cfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 8191b6e6841aee74b9ce188b7b242cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 500
 --- !u!212 &212270032038802062
 SpriteRenderer:
   m_ObjectHideFlags: 1

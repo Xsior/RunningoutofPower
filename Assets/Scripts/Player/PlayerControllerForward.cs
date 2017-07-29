@@ -31,8 +31,8 @@ public class PlayerControllerForward : MonoBehaviour {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
-        Vector2 direction = new Vector3(transform.up.y * h,  transform.right.y * v).normalized;
-        GetComponent<Rigidbody2D>().velocity = (direction * speed  * Time.deltaTime);
+        Vector2 direction = transform.up * v + transform.right * h;
+        GetComponent<Rigidbody2D>().velocity = ( direction * speed  * Time.deltaTime);
     }
     void Rotation()
     {

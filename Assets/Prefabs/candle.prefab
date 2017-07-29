@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61930e16e81db5c43a4ecc22422a0953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 1, g: 0.90740365, b: 0.3897059, a: 1}
+  Color: {r: 1, g: 0.901, b: 0.3897059, a: 1}
   Sprite: {fileID: 21300000, guid: 1a2fa03369d897e439ef81a5d10d7241, type: 3}
   SortingOrder: 0
   Material: {fileID: 2100000, guid: eba84647c4f5b25448790591a30ca17e, type: 2}

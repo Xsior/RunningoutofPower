@@ -9,7 +9,7 @@ public class LightsController : MonoBehaviour
 {
 
     private GameObject flashlight, matchstick;
-
+    private SanityController sanity;
     private bool flashlightEnabled;
 
     private int battery;
@@ -22,6 +22,7 @@ public class LightsController : MonoBehaviour
     {
         flashlight = gameObject.transform.Find("Flashlight").gameObject;
         matchstick = gameObject.transform.Find("Light").gameObject;
+        sanity = gameObject.transform.Find("Player").GetComponent<SanityController>();
         battery = 100;
         timer = 0;
         timerWait = 0;

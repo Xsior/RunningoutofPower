@@ -14,6 +14,9 @@ public class SanityController : MonoBehaviour
     float sanityLostAmount = 1f;
     Image sanityBar;
 
+    public float sanityLossRatio = 1f;
+
+
     public float CurrentSanity
     {
         get { return currentSanity; }

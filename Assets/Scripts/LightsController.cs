@@ -37,7 +37,7 @@ public class LightsController : MonoBehaviour
         {
             battery -= 1;
             timer = 0;
-            flashlight.GetComponent<LightSprite>().Color.a = Mathf.Clamp(battery / 100f, 0.25f, 1.0f);
+            flashlight.GetComponent<LightSprite>().Color.a = Mathf.Clamp(battery / 100f, 0.4f, 1.0f);
             flashlight.transform.Find("FlashlightChild").GetComponent<LightSprite>().Color.a = Mathf.Clamp(battery / 100f, 0.25f, 1.0f);
         }
         timer += Time.deltaTime;

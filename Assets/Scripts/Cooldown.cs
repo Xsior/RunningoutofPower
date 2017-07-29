@@ -6,7 +6,7 @@ using System.Text;
 
 public class Cooldown : MonoBehaviour
 {
-    private float timerValue;
+    public float timerValue;
     private bool isTimerRunning;
 
     public bool canUse;
@@ -14,9 +14,8 @@ public class Cooldown : MonoBehaviour
 
     public event EventHandler cdElapsed;
 
-    public Cooldown(float cooldownTime)
+    void Start()
     {
-        this.cooldownTime = cooldownTime;
         isTimerRunning = false;
         timerValue = cooldownTime;
         canUse = true;
@@ -32,7 +31,10 @@ public class Cooldown : MonoBehaviour
     {
         timerValue = time;
     }
-
+    public float GetTime()
+    {
+        return timerValue;
+    }
     public void startTimer()
     {
         isTimerRunning = true;
@@ -48,7 +50,7 @@ public class Cooldown : MonoBehaviour
         timerValue = cooldownTime;
 
     }
-    public void Update()
+    void Update()
     {
         if (isTimerRunning)
         {

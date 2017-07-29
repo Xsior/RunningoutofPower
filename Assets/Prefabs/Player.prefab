@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114967780182522264}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   SortingOrder: 0
   Material: {fileID: 2100000, guid: eba84647c4f5b25448790591a30ca17e, type: 2}
   LightOrigin: {x: 0, y: 0, z: 0.5}
-  Shape: 0
+  Shape: 1
 --- !u!114 &114448091668208586
 MonoBehaviour:
   m_ObjectHideFlags: 1

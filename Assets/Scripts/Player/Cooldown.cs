@@ -14,14 +14,20 @@ public class Cooldown : MonoBehaviour
 
     public event EventHandler cdElapsed;
 
-    public Cooldown(float cooldownTime)
+    void Start()
     {
-        this.cooldownTime = cooldownTime;
         isTimerRunning = false;
         timerValue = cooldownTime;
         canUse = true;
 
         cdElapsed += Cooldown_cdElapsed;
+    }
+
+    
+
+    public void SetCooldownTime(float cooldownTime)
+    {
+        this.cooldownTime = cooldownTime;
     }
 
     private void Cooldown_cdElapsed(object sender, EventArgs e)
@@ -32,7 +38,10 @@ public class Cooldown : MonoBehaviour
     {
         timerValue = time;
     }
-
+    public float GetTime()
+    {
+        return timerValue;
+    }
     public void startTimer()
     {
         isTimerRunning = true;
@@ -46,9 +55,9 @@ public class Cooldown : MonoBehaviour
     public void resetTimer()
     {
         timerValue = cooldownTime;
-
     }
-    public void Update()
+
+    void Update()
     {
         if (isTimerRunning)
         {

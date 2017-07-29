@@ -5,15 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private float currentHp;
 
-
-
+    Vector3 mousePoint;
     public float speed = 10;
+    public SanityController sanityContr;
 
     // Use this for initialization
     void Start()
     {
-
+        sanityContr = GetComponent<SanityController>();
     }
 
     // Update is called once per frame
@@ -38,16 +39,25 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
-        
+
         Vector2 direction = new Vector3(h, v).normalized;
         GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.deltaTime);
     }
     void Rotation()
     {
-        Vector3 rotation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 rot2d = new Vector3(rotation.x, rotation.y, rotation.z);
-        transform.LookAt(rot2d, Vector3.back);
-        transform.rotation = new Quaternion(0,0, transform.rotation.z, transform.rotation.w);
+        if (mousePoint == null)
+        {
+            mousePoint = Input.mousePosition;
+        }
+        if (Vector3.Distance(mousePoint, Input.mousePosition) > 0.0001f)
+        {
+            mousePoint = Input.mousePosition;
+            Vector3 rotation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            transform.LookAt(rotation, Vector3.back);
+            transform.rotation = new Quaternion(0, 0, transform.rotation.z, transform.rotation.w);
+        }
+
     }
 
 

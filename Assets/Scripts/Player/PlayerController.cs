@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+
+
+
+    public float speed = 10;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +16,29 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        HandleInput();
+
+    }
+
+
+    void HandleInput()
+    {
+        Movement();
+
+
+    }
+    void Movement()
+    {
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        Debug.Log(h + " " + v);
+        Vector3 direction = new Vector3(h, v).normalized;
+        GetComponent<Rigidbody2D>().position = Vector3.MoveTowards(transform.position , transform.position + direction , speed * Time.deltaTime);
+    }
+    void HandleRotation()
+    {
+        
+
+
+    }
 }

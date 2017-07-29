@@ -2,11 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlashlightDetector : MonoBehaviour {
+public class FlashlightDetector : MonoBehaviour
+{
 
-
+    private SanityController sanity;
+    private bool saw = false;
+    private void Start()
+    {
+        sanity = FindObjectOfType<SanityController>();
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        if (collision.GetComponent<EnemyController>() != null)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, 10000);
+            if (hit)
+            {
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    saw = true;
+                }
+            }
+
+        }
+    }
+    private void Update()
+    {
+        if (saw)
+        {
+            sanity.sanityEnemyRatio = 2f;
+           // Debug.Log("Chuj");
+        }
+        else
+        {
+            sanity.sanityEnemyRatio = 1f;
+          //  Debug.Log("NieChuj");
+        }
+
+
+        saw = false;
     }
 }

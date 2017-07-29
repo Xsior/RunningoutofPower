@@ -14,7 +14,8 @@ public class SanityController : MonoBehaviour
     float sanityLostAmount = 1f;
     Image sanityBar;
 
-    public float sanityLossRatio = 1f;
+    public float sanityLightRatio = 1f;
+    public float sanityEnemyRatio = 1f;
 
 
     public float CurrentSanity
@@ -48,7 +49,7 @@ public class SanityController : MonoBehaviour
 
     public void ConstantSanityLoss()
     {
-        CurrentSanity -= sanityLostAmount * Time.deltaTime;
+        CurrentSanity -= sanityLostAmount *sanityLightRatio * sanityEnemyRatio * Time.deltaTime;
     }
     public void SafeHaven()
     {

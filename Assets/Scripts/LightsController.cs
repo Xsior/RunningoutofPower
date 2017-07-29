@@ -22,13 +22,15 @@ public class LightsController : MonoBehaviour
     {
         flashlight = gameObject.transform.Find("Flashlight").gameObject;
         matchstick = gameObject.transform.Find("Light").gameObject;
-        sanity = gameObject.transform.Find("Player").GetComponent<SanityController>();
         battery = 100;
         timer = 0;
         timerWait = 0;
         flashlightEnabled = true;
     }
-
+    private void Start()
+    {
+        sanity = FindObjectOfType<SanityController>();
+    }
     private void Update()
     {
         if (timer >= speed && flashlightEnabled)
@@ -43,18 +45,30 @@ public class LightsController : MonoBehaviour
         if (battery <= 25 && flashlightEnabled)
         {
             RandomFlashlighOff();
+            if (sanity.sanityLightRatio != 1.25f)
+            {
+                sanity.sanityLightRatio = 1.25f;
+            }
             timerWait += Time.deltaTime;
         }
         if (battery == 0)
         {
             flashlight.SetActive(false);
             matchstick.SetActive(true);
+            if (sanity.sanityLightRatio != 1.5f)
+            {
+                sanity.sanityLightRatio = 1.5f;
+            }
             flashlightEnabled = false;
         }
-        else if(!flashlightEnabled)
+        else if (!flashlightEnabled)
         {
             flashlight.SetActive(true);
             matchstick.SetActive(false);
+            if (sanity.sanityLightRatio != 1.5f)
+            {
+                sanity.sanityLightRatio = 1.5f;
+            }
             flashlightEnabled = true;
         }
     }
@@ -70,7 +84,7 @@ public class LightsController : MonoBehaviour
             }
             if (timerWait >= wait + Random.Range(0.1f, 0.5f))
             {
-                if(!flashlight.activeInHierarchy)
+                if (!flashlight.activeInHierarchy)
                     flashlight.SetActive(true);
                 timerWait = 0;
             }

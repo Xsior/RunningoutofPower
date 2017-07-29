@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
 
-    
+
+    Vector3 lastMousePos;
     public float speed = 10;
 
     // Use this for initialization
@@ -37,17 +38,18 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
-        
-        Vector2 direction = new Vector3(h, v).normalized;
 
+        Vector2 direction = new Vector3(h, v).normalized;
         GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.deltaTime);
     }
     void Rotation()
     {
+
         Vector3 rotation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 rot2d = new Vector3(rotation.x, rotation.y, rotation.z);
-        transform.LookAt(rot2d, Vector3.back);
-        transform.rotation = new Quaternion(0,0, transform.rotation.z, transform.rotation.w);
+        //Vector3 rot2d = new Vector3(rotation.x, rotation.y, rotation.z);
+
+        transform.LookAt(rotation, Vector3.back);
+        transform.rotation = new Quaternion(0, 0, transform.rotation.z, transform.rotation.w);
     }
 
 

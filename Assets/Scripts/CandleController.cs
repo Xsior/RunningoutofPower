@@ -23,20 +23,5 @@ public class CandleController : MonoBehaviour {
             light.SetActive(false);
         });
     }
-    private void Update()
-    {
-        
 
-        
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (!burnt && Input.GetButtonDown("E"))
-        {
-            burnt = true;
-            cd.startTimer();
-            light.transform.localScale = new Vector3(8, 8, 8);
-            light.SetActive(true);
-        }
-    }
 }

@@ -24,13 +24,14 @@ GameObject:
   - component: {fileID: 33180799859972432}
   - component: {fileID: 58804775030099332}
   - component: {fileID: 114635072398738482}
+  - component: {fileID: 114233034441080460}
   m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1902027942703564
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,8 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4381978940899532}
   - component: {fileID: 212380392495782122}
-  - component: {fileID: 114624468598685376}
-  - component: {fileID: 114192487984123918}
   - component: {fileID: 58352486924198076}
   m_Layer: 0
   m_Name: candle
@@ -57,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902027942703564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2760382, y: -0.64548254, z: 0}
+  m_LocalPosition: {x: 2.695763, y: 0.50104856, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479173184791408}
@@ -146,33 +145,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114192487984123918
+--- !u!114 &114233034441080460
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1902027942703564}
+  m_GameObject: {fileID: 1715054474556160}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canUse: 0
-  cooldownTime: 20
---- !u!114 &114624468598685376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1902027942703564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0732739bc060ce41b875e8eb06c5148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cd: {fileID: 114192487984123918}
-  player: {fileID: 0}
-  light: {fileID: 1715054474556160}
+  canUse: 1
+  cooldownTime: 25
 --- !u!114 &114635072398738482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,9 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c16748491bd826498f34fed4723f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 2048
+  cd: {fileID: 114233034441080460}
 --- !u!114 &114750345661435352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61930e16e81db5c43a4ecc22422a0953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: {r: 1, g: 0.90740365, b: 0.3897059, a: 0.5019608}
+  Color: {r: 1, g: 0.90740365, b: 0.3897059, a: 1}
   Sprite: {fileID: 21300000, guid: 1a2fa03369d897e439ef81a5d10d7241, type: 3}
   SortingOrder: 0
   Material: {fileID: 2100000, guid: eba84647c4f5b25448790591a30ca17e, type: 2}

@@ -6,8 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
 
-
-
+    
     public float speed = 10;
 
     // Use this for initialization
@@ -40,6 +39,7 @@ public class PlayerController : MonoBehaviour
         }
         
         Vector2 direction = new Vector3(h, v).normalized;
+
         GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.deltaTime);
     }
     void Rotation()

@@ -8,8 +8,8 @@ public class SanityController : MonoBehaviour
 {
     float startingSanity = 100;
     float currentSanity;
-    float sanityTimer = 5f;
-    float sanityLostAmount = 5f;
+    float sanityTimer = 2f;
+    float sanityLostAmount = 10f;
     Image sanityBar;
 
     public float CurrentSanity
@@ -25,15 +25,15 @@ public class SanityController : MonoBehaviour
             {
                 currentSanity = value;
             }
-               
-            sanityBar.DOFillAmount(currentSanity / startingSanity, 0.25f);
+            sanityBar.DOFillAmount(currentSanity / startingSanity, 0.5f);
         }
     }
 
 	void Start ()
     {
-        currentSanity = startingSanity;
         sanityBar = GetComponent<Image>();
+        CurrentSanity = startingSanity;
+        
     }
 	void Update ()
     {
@@ -48,7 +48,7 @@ public class SanityController : MonoBehaviour
         }
         else
         {
-            sanityTimer = 5f;
+            sanityTimer = 2f;
             CurrentSanity -= sanityLostAmount;
         }
 

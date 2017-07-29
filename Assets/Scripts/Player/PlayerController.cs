@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    Vector3 lastMousePos;
+    Vector3 mousePoint;
     public float speed = 10;
 
     // Use this for initialization
@@ -44,12 +44,19 @@ public class PlayerController : MonoBehaviour
     }
     void Rotation()
     {
+        if (mousePoint == null)
+        {
+            mousePoint = Input.mousePosition;
+        }
+        if (Vector3.Distance(mousePoint, Input.mousePosition) > 0.0001f)
+        {
+            mousePoint = Input.mousePosition;
+            Vector3 rotation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 rotation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector3 rot2d = new Vector3(rotation.x, rotation.y, rotation.z);
+            transform.LookAt(rotation, Vector3.back);
+            transform.rotation = new Quaternion(0, 0, transform.rotation.z, transform.rotation.w);
+        }
 
-        transform.LookAt(rotation, Vector3.back);
-        transform.rotation = new Quaternion(0, 0, transform.rotation.z, transform.rotation.w);
     }
 
 

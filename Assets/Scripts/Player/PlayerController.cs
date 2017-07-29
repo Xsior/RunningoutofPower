@@ -31,9 +31,12 @@ public class PlayerController : MonoBehaviour {
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+        if(v == 0 && h == 0){
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
         Debug.Log(h + " " + v);
-        Vector3 direction = new Vector3(h, v).normalized;
-        GetComponent<Rigidbody2D>().position = Vector3.MoveTowards(transform.position , transform.position + direction , speed * Time.deltaTime);
+        Vector2 direction = new Vector3(h, v).normalized;
+        GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.deltaTime);
     }
     void HandleRotation()
     {

@@ -6,7 +6,7 @@ public class WeaponManager : MonoBehaviour
 {
     enum SelectedWeaponType
     {
-        Pistol, Shotgun, Hammer
+        Pistol, Shotgun, Hammer, None
     }
     private WeaponBase EquippedWeapon;
     private Cooldown pistolCooldown;
@@ -20,12 +20,6 @@ public class WeaponManager : MonoBehaviour
     // Use this for initialization
     public void Awake()
     {
-        EquippedWeapon = new Pistol(this);
-        pistolCooldown = GetComponents<Cooldown>()[0];
-        shotgunCooldown = GetComponents<Cooldown>()[1];
-        reloadCooldown = GetComponents<Cooldown>()[2];
-        hammerCooldown = GetComponents<Cooldown>()[3];
-        triggeredEnemy = null;
     }
     public WeaponManager()
     {
@@ -33,10 +27,23 @@ public class WeaponManager : MonoBehaviour
     }
     public void Start()
     {
+
+        EquippedWeapon = new Pistol(this);
+        pistolCooldown = GetComponents<Cooldown>()[0];
+        shotgunCooldown = GetComponents<Cooldown>()[1];
+        reloadCooldown = GetComponents<Cooldown>()[2];
+        hammerCooldown = GetComponents<Cooldown>()[3];
+        triggeredEnemy = null;
+        currentWeapon = SelectedWeaponType.None;
         pistolCooldown.SetCooldownTime(Cooldowns.PistolCooldown);
         shotgunCooldown.SetCooldownTime(Cooldowns.ShotgunCooldown);
         reloadCooldown.SetCooldownTime(Cooldowns.Reloadcooldown);
         hammerCooldown.SetCooldownTime(Cooldowns.HammerCooldown);
+        pistolCooldown.resetTimer();
+        shotgunCooldown.resetTimer();
+        reloadCooldown.resetTimer();
+        hammerCooldown.resetTimer();
+
     }
     // Update is called once per frame
     void Update()
@@ -74,6 +81,8 @@ public class WeaponManager : MonoBehaviour
                         {
                             pistolCooldown.startTimer();
                             EquippedWeapon.Attack();
+
+                            Debug.Log("1");
                         }
                     }
                     break;
@@ -83,6 +92,7 @@ public class WeaponManager : MonoBehaviour
                         {
                             shotgunCooldown.startTimer();
                             EquippedWeapon.Attack();
+                            Debug.Log("2");
                         }
                     }
                     break;
@@ -92,6 +102,7 @@ public class WeaponManager : MonoBehaviour
                         {
                             hammerCooldown.startTimer();
                             EquippedWeapon.Attack();
+                            Debug.Log("3");
                         }
                     }
                     break;

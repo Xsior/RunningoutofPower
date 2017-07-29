@@ -16,7 +16,6 @@ public class Hammer : WeaponBase
         if (parent.triggeredEnemy != null)
         {
             parent.triggeredEnemy.GetComponent<EnemyController>().DealDamage(50);
-            Debug.Log("chuj");
         }
 
     }

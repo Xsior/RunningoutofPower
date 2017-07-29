@@ -12,13 +12,6 @@ public class DoorController : MonoBehaviour
         doorStatus = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
     public void OnTriggerEnter2D(Collider2D coll)
     {
         
@@ -68,6 +61,7 @@ public class DoorController : MonoBehaviour
 
     public void OpenDoor()
     {
+        GetComponent<AudioSource>().Play();
         transform.parent.Translate(new Vector3(-0.5f*doorWidth, 0, 0)); //zamiast 1.5 powinien być 0.5*szerokość_drzwiów, tutaj exampel
         transform.parent.Rotate(new Vector3(0, 0, 90f));
         // transform.parent.gameObject.GetComponent<Collider2D>().enabled = false;

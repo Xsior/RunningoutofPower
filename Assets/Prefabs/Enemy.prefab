@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114759936711536202}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61439902398724082
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 326ead9178cef604d979d0a97e29751e, type: 3}
-  m_Color: {r: 0.227451, g: 0.5058824, b: 1, a: 1}
+  m_Color: {r: 0.76362455, g: 0.83821553, b: 0.9705882, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

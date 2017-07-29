@@ -55,26 +55,30 @@ public class EnemyController : MonoBehaviour
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
-    void AttackPlayer()
-    {
-        player.GetComponent<PlayerController>().CurrentHp -= attackDamage;
-        Debug.Log("DIPSY");
-    }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(attackCooldown.canUse)
+        if(collision.gameObject.CompareTag("Player"))
         {
-            attackCooldown.startTimer();
-            AttackPlayer();
+            if (attackCooldown.canUse)
+            {
+                attackCooldown.startTimer();
+                collision.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(attackDamage);
+            }
         }
+        
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (attackCooldown.canUse)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            attackCooldown.startTimer();
-            AttackPlayer();
+            if (attackCooldown.canUse)
+            {
+                attackCooldown.startTimer();
+                collision.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(attackDamage);
+            }
         }
+        
     }
 }

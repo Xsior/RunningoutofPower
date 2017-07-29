@@ -19,10 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224755263666457036}
-  - component: {fileID: 114471209974860618}
   - component: {fileID: 222989194792510194}
   - component: {fileID: 114337505466348236}
-  - component: {fileID: 114428700020853444}
   m_Layer: 0
   m_Name: SanityBar
   m_TagString: Untagged
@@ -57,28 +55,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114428700020853444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1677969497840332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3c6e8cd0156c1943ba800aeb4825e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114471209974860618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1677969497840332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3c6e8cd0156c1943ba800aeb4825e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &222989194792510194
 CanvasRenderer:
   m_ObjectHideFlags: 1

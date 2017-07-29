@@ -6,24 +6,15 @@ public class PlayerController : MonoBehaviour
 {
 
     private float currentHp;
-    public float startingHp = 100;
-
-    public float CurrentHp
-    {
-        get { return currentHp; }
-        set
-        {
-            currentHp = value;
-        }
-    }
 
     Vector3 mousePoint;
     public float speed = 10;
+    public SanityController sanityContr;
 
     // Use this for initialization
     void Start()
     {
-        currentHp = startingHp;
+        sanityContr = GetComponent<SanityController>();
     }
 
     // Update is called once per frame

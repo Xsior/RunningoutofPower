@@ -20,6 +20,7 @@ public class SanityController : MonoBehaviour
             if (value < 0)
             {
                 currentSanity = 0;
+                gameObject.SetActive(false);
             }
             else
             {
@@ -31,7 +32,7 @@ public class SanityController : MonoBehaviour
 
 	void Start ()
     {
-        sanityBar = GetComponent<Image>();
+        sanityBar = GameObject.FindGameObjectWithTag("Canvas").transform.Find("SanityBar").GetComponent<Image>();
         CurrentSanity = startingSanity;
         
     }

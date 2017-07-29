@@ -55,8 +55,8 @@ public class Cooldown : MonoBehaviour
     public void resetTimer()
     {
         timerValue = cooldownTime;
-
     }
+
     void Update()
     {
         if (isTimerRunning)

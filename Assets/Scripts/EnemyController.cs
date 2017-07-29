@@ -7,15 +7,14 @@ public class EnemyController : MonoBehaviour
     GameObject player;
     bool targetLocked = false;
     int detectionRange = 3;
-    private Cooldown attackCooldown;
+    public Cooldown attackCooldown;
     float attackDamage = 10;
 	// Use this for initialization
 	void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         attackCooldown = GetComponent<Cooldown>();
-        attackCooldown.SetCooldownTime(2f);
-        attackCooldown.Initialize();
+        //attackCooldown.SetCooldownTime(2f);
 	}
 	
 	// Update is called once per frame

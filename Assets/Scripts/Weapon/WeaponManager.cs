@@ -23,11 +23,10 @@ public class WeaponManager : MonoBehaviour
         {
             EquippedWeapon.Attack();           
         }
-    }
-
-    public void Attach(GameObject obj)
-    {
-        obj.transform.parent = transform;
+        if (Input.GetMouseButtonDown(1))
+        {
+            EquippedWeapon = new Shotgun(this);
+        }
     }
 
 }

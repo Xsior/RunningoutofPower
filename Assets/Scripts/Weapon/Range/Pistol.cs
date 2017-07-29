@@ -8,6 +8,7 @@ public class Pistol : WeaponBase {
         BulletSpeed = 130.0f;
         BulletLifeTime = 0.4f;
         BulletDamage = 50;
+        weaponCooldown = 0.5f;
     }
 	
 	public override void Attack()

@@ -81,4 +81,9 @@ public class EnemyController : MonoBehaviour
         }
         
     }
+
+    public void DealDamage(float damage)
+    {
+        Debug.Log("OOOO AAAAAA");
+    }
 }

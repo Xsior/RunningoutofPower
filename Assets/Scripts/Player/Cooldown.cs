@@ -23,6 +23,20 @@ public class Cooldown : MonoBehaviour
         cdElapsed += Cooldown_cdElapsed;
     }
 
+    public void Initialize()
+    {
+        isTimerRunning = false;
+        timerValue = cooldownTime;
+        canUse = true;
+
+        cdElapsed += Cooldown_cdElapsed;
+    }
+
+    public void SetCooldownTime(float cooldownTime)
+    {
+        this.cooldownTime = cooldownTime;
+    }
+
     private void Cooldown_cdElapsed(object sender, EventArgs e)
     {
         canUse = true;

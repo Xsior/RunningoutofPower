@@ -5,7 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private float currentHp;
+    public float startingHp = 100;
 
+    public float CurrentHp
+    {
+        get { return currentHp; }
+        set
+        {
+            currentHp = value;
+        }
+    }
 
     Vector3 mousePoint;
     public float speed = 10;
@@ -13,7 +23,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        currentHp = startingHp;
     }
 
     // Update is called once per frame

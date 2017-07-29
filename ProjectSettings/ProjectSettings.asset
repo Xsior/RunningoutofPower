@@ -586,7 +586,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 0b2ecaed-d0dc-4cf4-a9ef-3643658b91cc
   projectName: LD39
   organizationId: klusek

@@ -2,21 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerControllerForward : MonoBehaviour {
 
 
 
-    Vector3 lastMousePos;
-    public float speed = 10;
+    public float speed = 500;
 
-    // Use this for initialization
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         HandleInput();
@@ -39,19 +31,16 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
-        Vector2 direction = new Vector3(h, v).normalized;
-        GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.deltaTime);
+        Vector2 direction = transform.up * v + transform.right * h;
+        GetComponent<Rigidbody2D>().velocity = ( direction * speed  * Time.deltaTime);
     }
     void Rotation()
     {
-
         Vector3 rotation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector3 rot2d = new Vector3(rotation.x, rotation.y, rotation.z);
-
-        transform.LookAt(rotation, Vector3.back);
+        Vector3 rot2d = new Vector3(rotation.x, rotation.y, rotation.z);
+        transform.LookAt(rot2d, Vector3.back);
         transform.rotation = new Quaternion(0, 0, transform.rotation.z, transform.rotation.w);
     }
 
 
 }
-

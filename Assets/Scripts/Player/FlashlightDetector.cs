@@ -63,12 +63,12 @@ public class FlashlightDetector : MonoBehaviour
         if (saw)
         {
             sanity.sanityEnemyRatio = 2f;
-            Debug.Log("Chuj");
+
         }
         else
         {
             sanity.sanityEnemyRatio = 1f;
-            Debug.Log("NieChuj");
+
         }
 
 

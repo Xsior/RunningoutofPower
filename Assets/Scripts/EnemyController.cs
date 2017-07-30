@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField]
+    float startingHp = 100;
     GameObject player;
     bool targetLocked = false;
     int detectionRange = 3;
     public Cooldown attackCooldown;
     float attackDamage = 10;
-    float startingHp = 100;
     float hp;
     float speeedboost = 1f;
     float Hp
@@ -29,7 +30,13 @@ public class EnemyController : MonoBehaviour
     {
         speeedboost = 1f;
     }
-
+    public void ResetForSpawn()
+    {
+        hp = startingHp;
+        attackCooldown = GetComponent<Cooldown>();
+        attackCooldown.Renew();
+        targetLocked = false;
+    }
     // Use this for initialization
     void Start ()
     {

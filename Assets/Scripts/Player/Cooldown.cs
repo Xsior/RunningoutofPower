@@ -22,7 +22,12 @@ public class Cooldown : MonoBehaviour
 
         cdElapsed += Cooldown_cdElapsed;
     }
-
+    public void Renew()
+    {
+        isTimerRunning = false;
+        timerValue = cooldownTime;
+        canUse = true;
+    }
     
 
     public void SetCooldownTime(float cooldownTime)

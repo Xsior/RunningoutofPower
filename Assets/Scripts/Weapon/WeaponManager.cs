@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    enum SelectedWeaponType
+    public enum SelectedWeaponType
     {
         Pistol, Shotgun, Hammer, None
     }
@@ -15,6 +15,10 @@ public class WeaponManager : MonoBehaviour
     private Cooldown hammerCooldown;
     public GameObject triggeredEnemy;
     public SObject Cooldowns;
+
+    public bool hasPistol;
+    public bool hasShotgun;
+    public bool hasHammer;
 
     SelectedWeaponType currentWeapon;
     // Use this for initialization
@@ -27,7 +31,9 @@ public class WeaponManager : MonoBehaviour
     }
     public void Start()
     {
-
+        hasPistol = false;
+        hasShotgun = false;
+        hasHammer = true;
         EquippedWeapon = new Pistol(this);
         pistolCooldown = GetComponents<Cooldown>()[0];
         shotgunCooldown = GetComponents<Cooldown>()[1];
@@ -77,32 +83,28 @@ public class WeaponManager : MonoBehaviour
             {
                 case SelectedWeaponType.Pistol:
                     {
-                        if (pistolCooldown.canUse)
+                        if (pistolCooldown.canUse && hasPistol)
                         {
                             pistolCooldown.startTimer();
                             EquippedWeapon.Attack();
-
-                            Debug.Log("1");
                         }
                     }
                     break;
                 case SelectedWeaponType.Shotgun:
                     {
-                        if (shotgunCooldown.canUse)
+                        if (shotgunCooldown.canUse && hasShotgun)
                         {
                             shotgunCooldown.startTimer();
                             EquippedWeapon.Attack();
-                            Debug.Log("2");
                         }
                     }
                     break;
                 case SelectedWeaponType.Hammer:
                     {
-                        if (hammerCooldown.canUse)
+                        if (hammerCooldown.canUse && hasHammer)
                         {
                             hammerCooldown.startTimer();
                             EquippedWeapon.Attack();
-                            Debug.Log("3");
                         }
                     }
                     break;
@@ -115,16 +117,32 @@ public class WeaponManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.tag == "Chest")
         {
             triggeredEnemy = collision.gameObject;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.tag == "Chest")
         {
             triggeredEnemy = null;
+        }
+    }
+
+    public void AddWeapon(SelectedWeaponType type)
+    {
+        switch(type )
+        {
+            case SelectedWeaponType.Pistol:
+                hasPistol = true;
+                break;
+            case SelectedWeaponType.Shotgun:
+                hasShotgun = true;
+                break;
+            case SelectedWeaponType.Hammer:
+                hasHammer = true;
+                break;
         }
     }
 }

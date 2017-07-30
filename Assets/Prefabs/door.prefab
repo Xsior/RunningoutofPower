@@ -65,9 +65,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043232854961606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.28, y: -2.6619442, z: 0}
-  m_LocalScale: {x: 3.5, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -41.5, y: 1.9013557, z: 0}
+  m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_Children:
   - {fileID: 4266402190947606}
   m_Father: {fileID: 0}
@@ -84,19 +84,19 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 0}
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.25, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.14, y: 0.089999996, z: 0.14, w: 0.089999996}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78, y: 0.2}
+    border: {x: 0, y: 4.9, z: 5.5699997, w: 4.66}
+    pivot: {x: 0.015076379, y: 0.5117573}
+    oldSize: {x: 10.24, y: 10.24}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.2}
+  m_Size: {x: 4.5, y: 0.7}
   m_EdgeRadius: 0
 --- !u!61 &61494135441339350
 BoxCollider2D:
@@ -110,7 +110,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.25, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -121,7 +121,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 4.5, y: 2.62}
   m_EdgeRadius: 0
 --- !u!82 &82264412381433200
 AudioSource:
@@ -215,7 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc53e466d0d0bd144b879196bb95c613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyNeeded: 0
   doorStatus: 0
+  opened: {fileID: 21300000, guid: 91ee209709a2e334f96b35b506f63db7, type: 3}
+  closed: {fileID: 21300000, guid: b8f7a50ecd51cc64ab0d66540bcc9bfe, type: 3}
 --- !u!212 &212844559562669376
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -248,8 +251,8 @@ SpriteRenderer:
   m_SortingLayerID: -1736329759
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72fe867b6d5eaeb42866341cd4902ac2, type: 3}
-  m_Color: {r: 0.1254902, g: 0.20392159, b: 0.21960786, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b8f7a50ecd51cc64ab0d66540bcc9bfe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

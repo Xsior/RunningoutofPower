@@ -9,6 +9,8 @@ public class DoorController : MonoBehaviour
     private bool doorGo = false;
     public bool doorStatus = false; // true == otwarte, false == zamknięte
     float smallTimer = 0;
+
+    [SerializeField] private Sprite opened, closed;
     void Start()
     {
         doorStatus = false;
@@ -70,16 +72,12 @@ public class DoorController : MonoBehaviour
     public void OpenDoor()
     {
         GetComponent<AudioSource>().Play();
-        transform.parent.Translate(new Vector3(-0.5f * doorWidth, 0, 0)); //zamiast 1.5 powinien być 0.5*szerokość_drzwiów, tutaj exampel
-        transform.parent.Rotate(new Vector3(0, 0, 90f));
-        // transform.parent.gameObject.GetComponent<Collider2D>().enabled = false;
-        transform.parent.Translate(new Vector3(-0.5f * doorWidth, 0, 0));
+        transform.parent.GetComponent<SpriteRenderer>().sprite = opened;
+        transform.parent.GetComponent<BoxCollider2D>().enabled = false;
     }
     public void CloseDoor()
     {
-        transform.parent.Translate(new Vector3(0.5f * doorWidth, 0, 0));
-        transform.parent.Rotate(new Vector3(0, 0, 270f));
-        // transform.parent.gameObject.GetComponent<Collider2D>().enabled = false;
-        transform.parent.Translate(new Vector3(0.5f * doorWidth, 0, 0));
+        transform.parent.GetComponent<SpriteRenderer>().sprite = closed;
+        transform.parent.GetComponent<BoxCollider2D>().enabled = true;
     }
 }

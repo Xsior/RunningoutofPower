@@ -18,11 +18,20 @@ public class Hammer : WeaponBase
             if(parent.triggeredEnemy.tag == "Enemy")
             {
                 parent.triggeredEnemy.GetComponent<EnemyController>().DealDamage(50);
+                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.Stop();
+                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.clip =
+                                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().clipList[1];
+                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.Play();
                 return;
             }
             else if (parent.triggeredEnemy.tag == "Chest")
             {
                 parent.triggeredEnemy.GetComponent<Chest>().Hit();
+
+                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.Stop();
+                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.clip =
+                                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().clipList[1];
+                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.Play();
                 return;
             }
 

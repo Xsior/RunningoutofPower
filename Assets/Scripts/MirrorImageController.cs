@@ -19,6 +19,10 @@ public class MirrorImageController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))  collision.gameObject.GetComponent<SanityController>().DealSanityDamage(15f);
+        if (collision.gameObject.CompareTag("Player") && collision.isTrigger == false)
+        {
+            collision.gameObject.GetComponent<SanityController>().DealSanityDamage(15f);
+        }
+                
     }
 }

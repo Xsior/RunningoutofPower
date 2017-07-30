@@ -68,7 +68,7 @@ public class SanityController : MonoBehaviour
 
     void OnTimerElapsed(object sender, System.EventArgs e)
     {
-        float lightDegrees = 90 + (currentSanity - 100) / 2;
+        float lightDegrees = 80 + (currentSanity - 100) / 2;
         RaycastHit2D r;
         Vector3 direction;
         int sign = 0;
@@ -78,7 +78,7 @@ public class SanityController : MonoBehaviour
         } while (sign == 0);
         do
         {
-            direction = Quaternion.Euler(0, 0, sign * Random.Range(lightDegrees, 90)) * transform.up;
+            direction = Quaternion.Euler(0, 0, sign * Random.Range(lightDegrees, 80)) * transform.up;
             r = Physics2D.Raycast(transform.position, direction.normalized);
             Debug.Log(r.distance);
         } while (r.distance < 1.5f);

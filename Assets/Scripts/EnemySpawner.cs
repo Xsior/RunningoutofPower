@@ -6,12 +6,12 @@ public class EnemySpawner : MonoBehaviour {
 
     public List<Transform> enemies = new List<Transform>();
     public List<Transform> activeEnemies = new List<Transform>();
-
+    private Transform player;
 
 
     private void Start()
     {
-
+        player = GameObject.Find("Player").transform;
         foreach (Transform child in transform)
             enemies.Add(child);
     }
@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             if(t.gameObject.activeSelf == false)
             {
-                t.parent = transform.parent;
+                t.parent = player;
                 Debug.Log("spawning");
                 t.position = pos;
                 t.GetComponent<EnemyController>().ResetForSpawn();

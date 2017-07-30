@@ -17,7 +17,7 @@ public class SanityController : MonoBehaviour
     public float sanityLightRatio = 1f;
     public float sanityEnemyRatio = 1f;
     public Cooldown spawnTimer;
-
+    bool scaryTime = false;
     public float CurrentSanity
     {
         get { return currentSanity; }
@@ -41,7 +41,7 @@ public class SanityController : MonoBehaviour
         sanityBar = GameObject.FindGameObjectWithTag("Canvas").transform.Find("SanityBar").GetComponent<Image>();
         spawner = FindObjectOfType<EnemySpawner>();
         CurrentSanity = startingSanity;
-        spawnTimer.cdElapsed += OnTimerElapsed;
+        //spawnTimer.cdElapsed += OnTimerElapsed;
 
     }
     void Update()
@@ -66,36 +66,62 @@ public class SanityController : MonoBehaviour
         CurrentSanity -= sanityDamage;
     }
 
-    void OnTimerElapsed(object sender, System.EventArgs e)
+    bool OnTimerElapsed()
     {
         float lightDegrees = 80 + (currentSanity - 100) / 2;
         RaycastHit2D r;
         Vector3 direction;
-        int sign = 0;
-        do
+        int sign = 1;
+        if (Random.Range(0, 1) == 0)
         {
-            sign = Random.Range(-1, 2);
-        } while (sign == 0);
-        do
+            sign = -1;
+        }
+        transform.TransformDirection(direction = Quaternion.Euler(0, 0, sign * Random.Range(lightDegrees, 100)) * transform.up);
+        r = Physics2D.Raycast(transform.position, direction.normalized);
+
+        if (r.distance > 3.5f)
         {
-            transform.TransformDirection(direction = Quaternion.Euler(0, 0, sign * Random.Range(lightDegrees, 100)) * transform.up);
-            r = Physics2D.Raycast(transform.position, direction.normalized);
-            Debug.Log(r.distance);
-        } while (r.distance < 3.5f);
-        spawner.SpawanEnemy(transform.position + (direction.normalized * Random.Range(2f, 3f)));
+
+            spawner.SpawanEnemy(transform.position + (direction.normalized * Random.Range(2f, 3f)));
+            return true;
+        }
+        else
+            return false;
     }
     private void SpawnHandler()
     {
 
         if (currentSanity < 90)
         {
-            int i = 1;
-            i =1 -(int)(currentSanity - 100) / 20;
-            //Debug.Log(i);
-            if (spawnTimer.canUse && spawner.enemyCount() < i)
+            if (scaryTime)
             {
-                spawnTimer.SetCooldownTime(Random.Range(currentSanity / 100 * 2f, currentSanity / 100 * 10f));
+                int i = 1;
+                i = 1 - (int)(currentSanity - 100) / 20;
+
+                if (spawnTimer.canUse && spawner.enemyCount() < i)
+                {
+                    if (OnTimerElapsed())
+                    {
+                        spawnTimer.SetCooldownTime(Random.Range(currentSanity / 100 * 2f, currentSanity / 100 * 10f));
+                        spawnTimer.startTimer();
+                    }
+                }
+            }
+            if (!scaryTime)
+            {
+                scaryTime = true;
+                spawnTimer.Renew();
+                spawnTimer.SetCooldownTime(3);
                 spawnTimer.startTimer();
+            }
+        }
+
+
+        else
+        {
+            if (scaryTime)
+            {
+                scaryTime = false;
             }
         }
 

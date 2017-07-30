@@ -29,17 +29,21 @@ public class MirrorImageScare : JumpScareBase
 
     void GoToPlayer()
     {
-        Vector3 direction = (player.transform.position - mirrorImage.transform.position);
-        direction = direction.normalized;
-
-        Quaternion q = Quaternion.LookRotation(direction, Vector3.back);
-
-        mirrorImage.transform.rotation = new Quaternion(0, 0, q.z, q.w);
-        if (Vector2.Distance(player.transform.position, mirrorImage.transform.position) > 0.5f)
+        if(Vector3.Distance(player.transform.position, mirrorImage.transform.position) > 2)
         {
+            Vector3 direction = (player.transform.position - mirrorImage.transform.position);
+            direction = direction.normalized;
+
+            Quaternion q = Quaternion.LookRotation(direction, Vector3.back);
+
+            mirrorImage.transform.rotation = new Quaternion(0, 0, q.z, q.w);
+            if (Vector2.Distance(player.transform.position, mirrorImage.transform.position) > 0.5f)
+            {
 
 
-            mirrorImage.GetComponent<Rigidbody2D>().velocity = (direction * 250 * speed * Time.deltaTime);
+                mirrorImage.GetComponent<Rigidbody2D>().velocity = (direction * 250 * speed * Time.deltaTime);
+            }
+            else mirrorImage.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         else mirrorImage.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
@@ -50,6 +54,7 @@ public class MirrorImageScare : JumpScareBase
         {
             if(collision.gameObject.CompareTag("Player"))
             {
+                jumpsScareDone = true;
                 collidedObject = collision;
                 OnJumpScareExecution();
                 mirrorImage.SetActive(true);

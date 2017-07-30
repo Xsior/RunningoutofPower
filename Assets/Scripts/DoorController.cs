@@ -17,7 +17,6 @@ public class DoorController : MonoBehaviour
         
         if (coll.gameObject.tag == "Player" && !doorStatus) //ten komunikat powinien się wyświetlić IFF drzwi zamknięte i gracz wbija w drzwi
         {
-            Debug.Log("Press E to open the doors...");
 
             if (Input.GetKeyDown(KeyCode.E)) //drzwi otwiera i zamyka klawisz E
             {
@@ -27,7 +26,6 @@ public class DoorController : MonoBehaviour
         }
         if (coll.gameObject.tag == "Player" && doorStatus) //ten komunikat powinien się wyświetlić IFF drzwi zamknięte i gracz wbija w drzwi
         {
-            Debug.Log("Press F to close the doors...");
 
             if (Input.GetKeyDown(KeyCode.F)) //drzwi otwiera i zamyka klawisz F
             {
@@ -40,7 +38,6 @@ public class DoorController : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player" && !doorStatus)
         {
-            Debug.Log("Press E to open the doors...");
             if (Input.GetKeyDown(KeyCode.E)) //drzwi otwiera i zamyka klawisz E
             {
                 doorStatus = true;
@@ -49,7 +46,6 @@ public class DoorController : MonoBehaviour
         }
         if (coll.gameObject.tag == "Player" && doorStatus) //ten komunikat powinien się wyświetlić IFF drzwi zamknięte i gracz wbija w drzwi
         {
-            Debug.Log("Press F to close the doors...");
 
             if (Input.GetKeyDown(KeyCode.F)) //drzwi otwiera i zamyka klawisz E
             {

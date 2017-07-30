@@ -69,6 +69,9 @@ public class SanityController : MonoBehaviour
         dmgParticle.Stop();
         dmgParticle.Play();
         CurrentSanity -= sanityDamage;
+
+        GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().playerHurtSource.Stop();
+        GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().playerHurtSource.Play();
     }
 
     bool OnTimerElapsed()

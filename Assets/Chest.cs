@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Chest : MonoBehaviour {
@@ -41,6 +42,7 @@ public class Chest : MonoBehaviour {
             if (Reward == ChestReward.Battery)
                 GameObject.FindGameObjectWithTag("Player").GetComponent<LightsController>().AddBattery(20);
             Destroy(gameObject);
+            Instantiate(Resources.Load("Zniszczenia"), transform.position, Quaternion.identity);
         }
 
 	}

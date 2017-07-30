@@ -15,6 +15,12 @@ public class EnemyController : MonoBehaviour
     float speeedboost = 1f;
     public float speed;
     EnemySpawner spawner;
+
+    public AudioSource audioSource;
+    public AudioSource enemyScream;
+    public AudioSource enemyCry;
+    
+
     float Hp
     {
         get { return hp; }
@@ -24,10 +30,18 @@ public class EnemyController : MonoBehaviour
             if (hp <= 0)
             {
                 spawner.Kill(transform);
-                gameObject.SetActive(false);
+                enemyScream.Play();
+                StartCoroutine(playSoundToEnd());
+                
             }
         }
     }
+    public IEnumerator playSoundToEnd()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
+    }
+
     public void SpeedBoost()
     {
         speeedboost = 3f;
@@ -101,6 +115,7 @@ public class EnemyController : MonoBehaviour
             {
                 attackCooldown.startTimer();
                 collision.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(attackDamage);
+                audioSource.Play();
             }
         }
 
@@ -113,6 +128,7 @@ public class EnemyController : MonoBehaviour
             {
                 attackCooldown.startTimer();
                 collision.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(attackDamage);
+                audioSource.Play();
             }
         }
 

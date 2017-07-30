@@ -14,6 +14,8 @@ public class Chest : MonoBehaviour {
     int Hp;
     GameObject target;
     public ChestReward Reward;
+    public GameObject pistolAnimation;
+    public GameObject shotgunanimation;
 
     // Use this for initialization
 	void Start () {
@@ -25,9 +27,15 @@ public class Chest : MonoBehaviour {
         if (Hp <= 0)
         {
             if(Reward == ChestReward.Shotgun)
+            {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Shotgun);
+                shotgunanimation.gameObject.SetActive(true);
+            }
             if (Reward == ChestReward.Pistol)
+            {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Pistol);
+                pistolAnimation.gameObject.SetActive(true);
+            }
             if (Reward == ChestReward.Battery)
                 GameObject.FindGameObjectWithTag("Player").GetComponent<LightsController>().AddBattery(20);
             Destroy(gameObject);

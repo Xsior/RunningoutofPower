@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         HandleInput();
 
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isWalking", true);
         }
         Vector2 direction = new Vector3(h, v).normalized;
-        GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.deltaTime);
+        GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.fixedDeltaTime);
     }
     void Rotation()
     {

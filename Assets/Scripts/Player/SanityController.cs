@@ -18,6 +18,9 @@ public class SanityController : MonoBehaviour
     public float sanityEnemyRatio = 1f;
     public Cooldown spawnTimer;
     bool scaryTime = false;
+
+    [SerializeField] private ParticleSystem dmgParticle;
+
     public float CurrentSanity
     {
         get { return currentSanity; }
@@ -63,6 +66,8 @@ public class SanityController : MonoBehaviour
 
     public void DealSanityDamage(float sanityDamage)
     {
+        dmgParticle.Stop();
+        dmgParticle.Play();
         CurrentSanity -= sanityDamage;
     }
 

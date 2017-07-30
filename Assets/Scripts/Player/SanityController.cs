@@ -58,7 +58,7 @@ public class SanityController : MonoBehaviour
     public void SafeHaven()
     {
         if (currentSanity < startingSanity)
-            CurrentSanity += 4 * sanityLostAmount * Time.deltaTime;
+            CurrentSanity += 8 * sanityLostAmount * Time.deltaTime;
     }
 
     public void DealSanityDamage(float sanityDamage)

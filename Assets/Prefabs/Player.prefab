@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 114479061711762372}
   - component: {fileID: 114423064075580632}
   - component: {fileID: 114892956730953310}
-  - component: {fileID: 81773848125225432}
+  - component: {fileID: 81191419364150984}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -392,7 +392,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!81 &81773848125225432
+--- !u!81 &81191419364150984
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

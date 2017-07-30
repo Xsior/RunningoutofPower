@@ -13,16 +13,30 @@ public class FlashlightDetector : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyController>() != null)
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, 10000);
+        if (hit)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, 10000);
-            if (hit)
+            if (hit.collider.gameObject.tag == "Enemy")
             {
-                if (hit.collider.gameObject.tag == "Enemy")
+                Debug.Log("It's a me, mario");
+                saw = false;
+                if (hit.collider.gameObject.GetComponent<EnemyStandingController>() != null)
                 {
-                    saw = false;
+                    if (Vector2.Distance(transform.position, hit.collider.transform.position) < hit.collider.gameObject.GetComponent<EnemyStandingController>().detectionRange)
+                    {
+                        Debug.Log("Hello there");
+                        hit.collider.gameObject.GetComponent<EnemyStandingController>().SpeedBoost();
+                        hit.collider.gameObject.GetComponent<EnemyStandingController>().Seen();
+                    }
+
+
+                }
+                else if (collision.GetComponent<EnemyController>() != null)
+                {
                     hit.collider.gameObject.GetComponent<EnemyController>().SpeedBoost();
                 }
+
             }
 
         }
@@ -52,7 +66,16 @@ public class FlashlightDetector : MonoBehaviour
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
                     saw = false;
-                    hit.collider.gameObject.GetComponent<EnemyController>().SpeedNo();
+                    if (hit.collider.gameObject.GetComponent<EnemyStandingController>() != null)
+                    {
+                        hit.collider.gameObject.GetComponent<EnemyStandingController>().SpeedNo();
+
+                    }
+                    else if (collision.GetComponent<EnemyController>() != null)
+                    {
+                        hit.collider.gameObject.GetComponent<EnemyController>().SpeedNo();
+                    }
+
                 }
             }
 

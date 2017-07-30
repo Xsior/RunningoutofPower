@@ -12,7 +12,7 @@ public class SanityController : MonoBehaviour
     float sanityTimer = 2f;
     [SerializeField]
     float sanityLostAmount = 1f;
-    Image sanityBar;
+    public Image sanityBar;
 
     public float sanityLightRatio = 1f;
     public float sanityEnemyRatio = 1f;

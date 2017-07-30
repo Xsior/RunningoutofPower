@@ -11,7 +11,7 @@ public class SoundJumpScare : JumpScareBase
 	
 	void Update ()
     {
-		
+        
 	}
     
 

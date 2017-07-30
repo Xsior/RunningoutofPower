@@ -36,13 +36,14 @@ public class WeaponManager : MonoBehaviour
         hasShotgun = false;
         hasHammer = true;
         EquippedWeapon = new Hammer(this);
+        currentWeapon = SelectedWeaponType.Hammer;
+        
         pistolCooldown = GetComponents<Cooldown>()[0];
         shotgunCooldown = GetComponents<Cooldown>()[1];
         reloadCooldown = GetComponents<Cooldown>()[2];
         hammerCooldown = GetComponents<Cooldown>()[3];
-        currentCooldown = GetComponents<Cooldown>()[4];
+        currentCooldown = hammerCooldown;
         triggeredEnemy = null;
-        currentWeapon = SelectedWeaponType.None;
         pistolCooldown.SetCooldownTime(Cooldowns.PistolCooldown);
         shotgunCooldown.SetCooldownTime(Cooldowns.ShotgunCooldown);
         reloadCooldown.SetCooldownTime(Cooldowns.Reloadcooldown);
@@ -122,6 +123,8 @@ public class WeaponManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (gameObject.layer == LayerMask.GetMask("Light"))
+            return;
         if (collision.tag == "Enemy" || collision.tag == "Chest")
         {
             triggeredEnemy = collision.gameObject;

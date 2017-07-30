@@ -56,7 +56,14 @@ public class EnemyController : MonoBehaviour
         enabled = false;
         gameObject.SetActive(false);
     }
-
+    void Die()
+    {
+        ded = true;
+        GetComponent<SpriteRenderer>().enabled = false;
+        enabled = false;
+        gameObject.SetActive(false);
+        spawner.Kill(transform);
+    }
     public void SpeedBoost()
     {
         speeedboost = 3f;
@@ -71,6 +78,11 @@ public class EnemyController : MonoBehaviour
         attackCooldown = GetComponent<Cooldown>();
         attackCooldown.Renew();
         targetLocked = false;
+        ded = false;
+        enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+
     }
     // Use this for initialization
     void Start()
@@ -97,6 +109,10 @@ public class EnemyController : MonoBehaviour
 
     void HandleMovement()
     {
+        if (!GetComponent<SpriteRenderer>().isVisible && Vector2.Distance(player.transform.position, transform.position) > 12)
+        {
+            Die();
+        }
         if (Vector2.Distance(player.transform.position, transform.position) < detectionRange)
         {
             targetLocked = true;

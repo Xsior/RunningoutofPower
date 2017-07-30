@@ -77,7 +77,6 @@ public class DoorController : MonoBehaviour
     }
     public void CloseDoor()
     {
-        transform.parent.Translate(new Vector3(0.5f * doorWidth, 0, 0));
         transform.parent.GetComponent<SpriteRenderer>().sprite = closed;
         transform.parent.GetComponent<BoxCollider2D>().enabled = true;
     }

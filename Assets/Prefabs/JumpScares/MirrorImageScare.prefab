@@ -82,7 +82,6 @@ GameObject:
   - component: {fileID: 114406538518039558}
   - component: {fileID: 114931198959296956}
   - component: {fileID: 114691335111131774}
-  - component: {fileID: 81431458624955740}
   - component: {fileID: 95701102226275174}
   - component: {fileID: 114254115239255380}
   m_Layer: 0
@@ -387,13 +386,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.614307, y: 1}
   m_EdgeRadius: 0
---- !u!81 &81431458624955740
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1235072492660914}
-  m_Enabled: 1
 --- !u!95 &95061125455995406
 Animator:
   serializedVersion: 3
@@ -515,9 +507,9 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 2
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.25
   m_Autodestruct: 0
 --- !u!114 &114058208622351204
 MonoBehaviour:

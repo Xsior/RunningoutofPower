@@ -7,7 +7,7 @@ public class Pistol : WeaponBase {
     {
         BulletSpeed = 130.0f;
         BulletLifeTime = 0.4f;
-        BulletDamage = 50;
+        BulletDamage = 30;
         weaponCooldown = 0.5f;
     }
 	

@@ -24,7 +24,7 @@ public class SoundJumpScare : JumpScareBase
         {
             jumpsScareDone = true;
             audioSource.Play();
-            collidedObject.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(5f);
+            collidedObject.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(4f);
 
             Tween t = DOTween.To(() => volume, x => volume = x, 0, 6f);
         }

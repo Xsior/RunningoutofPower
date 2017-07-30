@@ -8,6 +8,7 @@ TagManager:
   - Canvas
   - Enemy
   - Chest
+  - MirrorImage
   layers:
   - Default
   - TransparentFX

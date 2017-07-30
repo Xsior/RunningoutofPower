@@ -11,7 +11,7 @@ public class SanityController : MonoBehaviour
     float currentSanity;
     float sanityTimer = 2f;
     [SerializeField]
-    float sanityLostAmount = 1f;
+    float sanityLostAmount = 1.5f;
     public Image sanityBar;
     EnemySpawner spawner;
     public float sanityLightRatio = 1f;
@@ -87,7 +87,7 @@ public class SanityController : MonoBehaviour
         if (r.distance > 3.5f)
         {
 
-            spawner.SpawanEnemy(transform.position + (direction.normalized * Random.Range(2f, 3f)));
+            spawner.SpawanEnemy(transform.position + (direction.normalized * Random.Range(3f, 4f)));
             return true;
         }
         else

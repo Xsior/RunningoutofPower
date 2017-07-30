@@ -8,9 +8,9 @@ public class EnemyController : MonoBehaviour
     float startingHp = 100;
     GameObject player;
     bool targetLocked = false;
-    int detectionRange = 4;
+    int detectionRange = 7;
     public Cooldown attackCooldown;
-    float attackDamage = 10;
+    float attackDamage = 8f;
     float hp;
     float speeedboost = 1f;
     public float speed;

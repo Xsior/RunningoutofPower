@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHp: 100
   attackCooldown: {fileID: 0}
-  speed: 35
+  speed: 30
 --- !u!212 &212973133014956358
 SpriteRenderer:
   m_ObjectHideFlags: 1

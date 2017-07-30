@@ -36,8 +36,9 @@ GameObject:
   - component: {fileID: 114221405276023968}
   - component: {fileID: 114717318741732056}
   - component: {fileID: 114664307597515400}
-  - component: {fileID: 81524773706761706}
   - component: {fileID: 114970041196840642}
+  - component: {fileID: 81805966904004830}
+  - component: {fileID: 114632295323433074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -612,7 +613,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!81 &81524773706761706
+--- !u!81 &81805966904004830
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -793,7 +794,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 9d67d11e5ed9398499ad9443cc8792e5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.12
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1150,7 +1151,7 @@ MonoBehaviour:
   sanityBar: {fileID: 0}
   sanityLightRatio: 1
   sanityEnemyRatio: 1
-  spawnTimer: {fileID: 114970041196840642}
+  spawnTimer: {fileID: 114632295323433074}
   dmgParticle: {fileID: 198167936371210168}
 --- !u!114 &114448091668208586
 MonoBehaviour:
@@ -1163,7 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7fe55be05942d439003daa9a268cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
   sanityContr: {fileID: 114445941659377822}
 --- !u!114 &114479061711762372
 MonoBehaviour:
@@ -1180,6 +1181,20 @@ MonoBehaviour:
   canUse: 0
   cooldownTime: 0
 --- !u!114 &114595791212195260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 1
+  cooldownTime: 0
+--- !u!114 &114632295323433074
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -4726,7 +4741,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: af5f61cda2f1c9848a66101614b0eed8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

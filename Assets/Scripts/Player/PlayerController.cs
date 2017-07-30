@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 10;
     public SanityController sanityContr;
 
+ 
+
     // Use this for initialization
     void Start()
     {

@@ -106,8 +106,10 @@ public class WeaponManager : MonoBehaviour
                             pistolCooldown.startTimer();
                             EquippedWeapon.Attack();
 
+                            GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Stop();
+                            GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.volume = 0.7f;
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.clip =
-                                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().clipList[4];
+                                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().clipList[3];
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Play();
 
                         }
@@ -119,9 +121,11 @@ public class WeaponManager : MonoBehaviour
                         {
                             shotgunCooldown.startTimer();
                             EquippedWeapon.Attack();
-
+                            
+                            GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Stop();
+                            GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.volume = 0.7f;
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.clip =
-                                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().clipList[3];
+                                GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().clipList[2];
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Play();
                         }
                     }
@@ -130,6 +134,11 @@ public class WeaponManager : MonoBehaviour
                     {
                         if (hammerCooldown.canUse && hasHammer)
                         {
+
+
+                            Debug.Log("chuj");
+                            GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Stop();
+                            GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.volume = 1f;
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.clip =
                                 GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().clipList[0];
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Play();

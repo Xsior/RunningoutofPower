@@ -43,7 +43,7 @@ public class FlashlightDetector : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyController>() != null)
+        if (collision.GetComponent<EnemyController>() != null || collision.gameObject.GetComponent<EnemyStandingController>() != null)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, 10000);
             if (hit)
@@ -58,27 +58,16 @@ public class FlashlightDetector : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyController>() != null)
+
+        saw = false;
+        if (collision.gameObject.GetComponent<EnemyStandingController>() != null)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, (collision.transform.position - transform.position).normalized, 10000);
-            if (hit)
-            {
-                if (hit.collider.gameObject.tag == "Enemy")
-                {
-                    saw = false;
-                    if (hit.collider.gameObject.GetComponent<EnemyStandingController>() != null)
-                    {
-                        hit.collider.gameObject.GetComponent<EnemyStandingController>().SpeedNo();
+            collision.gameObject.GetComponent<EnemyStandingController>().SpeedNo();
 
-                    }
-                    else if (collision.GetComponent<EnemyController>() != null)
-                    {
-                        hit.collider.gameObject.GetComponent<EnemyController>().SpeedNo();
-                    }
-
-                }
-            }
-
+        }
+        else if (collision.GetComponent<EnemyController>() != null)
+        {
+            collision.gameObject.GetComponent<EnemyController>().SpeedNo();
         }
     }
     private void Update()

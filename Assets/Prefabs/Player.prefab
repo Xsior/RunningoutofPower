@@ -31,7 +31,8 @@ GameObject:
   - component: {fileID: 114479061711762372}
   - component: {fileID: 114423064075580632}
   - component: {fileID: 114892956730953310}
-  - component: {fileID: 81042126654313988}
+  - component: {fileID: 81178639151810060}
+  - component: {fileID: 114362849914148658}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -117,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 1306306792188190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2857142, y: 0.6666666, z: 0.33333334}
+  m_LocalScale: {x: 0.5714284, y: 1.3333333, z: 0.33333334}
   m_Children: []
   m_Father: {fileID: 4794061543679234}
   m_RootOrder: 0
@@ -330,12 +331,12 @@ PolygonCollider2D:
     - - {x: -0.0028889177, y: 2.402}
       - {x: -0.43992305, y: 2.1934664}
       - {x: -0.15941252, y: 0.6724205}
-      - {x: -0.07120559, y: 0.2710826}
-      - {x: -0.16209312, y: 0.010988852}
-      - {x: -0.03898089, y: -0.36775145}
-      - {x: 0.09201427, y: -0.2536273}
-      - {x: 0.15570873, y: 0.026620805}
-      - {x: 0.08563499, y: 0.19661376}
+      - {x: -0.12068438, y: 0.48375472}
+      - {x: -0.2610507, y: 0.07175231}
+      - {x: -0.10408455, y: -0.5682708}
+      - {x: 0.13559133, y: -0.5126206}
+      - {x: 0.2728954, y: -0.05237174}
+      - {x: 0.1403221, y: 0.4761258}
       - {x: 0.4633345, y: 2.2539883}
 --- !u!61 &61686965837493524
 BoxCollider2D:
@@ -362,7 +363,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!81 &81042126654313988
+--- !u!81 &81178639151810060
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -427,6 +428,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggeredEnemy: {fileID: 0}
   Cooldowns: {fileID: 11400000, guid: 76e8f940055e99b44afa9e3ba5b41f9e, type: 2}
+  hasPistol: 0
+  hasShotgun: 0
+  hasHammer: 0
 --- !u!114 &114342632537016594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,6 +448,19 @@ MonoBehaviour:
   Material: {fileID: 2100000, guid: eba84647c4f5b25448790591a30ca17e, type: 2}
   LightOrigin: {x: 0, y: 0, z: 1}
   Shape: 0
+--- !u!114 &114362849914148658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canUse: 1
+  cooldownTime: 0
 --- !u!114 &114399000373596026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -487,8 +504,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingSanity: 100
   sanityLostAmount: 1
+  sanityBar: {fileID: 0}
   sanityLightRatio: 1
   sanityEnemyRatio: 1
+  spawnTimer: {fileID: 114362849914148658}
 --- !u!114 &114448091668208586
 MonoBehaviour:
   m_ObjectHideFlags: 1

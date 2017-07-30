@@ -7,6 +7,9 @@ public class Chest : MonoBehaviour {
     {
         Pistol,
         Shotgun,
+        Battery,
+        Beer,
+        Szatan
     }
     int Hp;
     GameObject target;
@@ -25,6 +28,8 @@ public class Chest : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Shotgun);
             if (Reward == ChestReward.Pistol)
                 GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Pistol);
+            if (Reward == ChestReward.Battery)
+                GameObject.FindGameObjectWithTag("Player").GetComponent<LightsController>().AddBattery(20);
             Destroy(gameObject);
         }
 

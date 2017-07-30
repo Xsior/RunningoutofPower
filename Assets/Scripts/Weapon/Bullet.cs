@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour {
     }
     private float lifeTime = 10.0f;
     private float lifeTimer = 0;
-    private float bulletSpeed = 1000.0f;
+    private float bulletSpeed = 0.0001f;
     bool isFiredPistol = false;
     bool isFiredShotgun = false;
     public float bulletDamage;
@@ -20,18 +20,27 @@ public class Bullet : MonoBehaviour {
     private void Start()
     {
         direction = GameObject.FindWithTag("Player").transform.up;
+
+        if (isFiredPistol)
+        {
+            GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
+        }
+        if (isFiredShotgun)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector3(direction.x + Random.Range(0.7f, -0.7f), direction.y, direction.z + Random.Range(0.7f, -0.7f)) * bulletSpeed, ForceMode2D.Impulse);
+        }
     }
 
     public void FixedUpdate()
     {
-        if(isFiredPistol)
-        {
-            GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed);
-        }
-        if (isFiredShotgun)
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector3(direction.x + Random.Range(0.7f, -0.7f), direction.y , direction.z + Random.Range(0.7f,-0.7f)) * bulletSpeed);
-        }
+        //if(isFiredPistol)
+        //{
+        //    GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
+        //}
+        //if (isFiredShotgun)
+        //{
+        //    GetComponent<Rigidbody2D>().AddForce(new Vector3(direction.x + Random.Range(0.7f, -0.7f), direction.y , direction.z + Random.Range(0.7f,-0.7f)) * bulletSpeed, ForceMode2D.Impulse);
+        //}
     }
 
     public void Update()

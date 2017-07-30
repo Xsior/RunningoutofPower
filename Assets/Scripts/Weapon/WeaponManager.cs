@@ -23,6 +23,8 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] private Animator animHammer;
 
+    [SerializeField] private Transform weapons;
+
     public SelectedWeaponType currentWeapon;
     // Use this for initialization
     public void Awake()
@@ -38,7 +40,10 @@ public class WeaponManager : MonoBehaviour
         hasShotgun = false;
         hasHammer = true;
         EquippedWeapon = new Hammer(this);
+
         currentWeapon = SelectedWeaponType.Hammer;
+
+        ChangeWeapon("hammer");
         
         pistolCooldown = GetComponents<Cooldown>()[0];
         shotgunCooldown = GetComponents<Cooldown>()[1];
@@ -55,6 +60,8 @@ public class WeaponManager : MonoBehaviour
         reloadCooldown.resetTimer();
         hammerCooldown.resetTimer();
 
+
+
     }
     // Update is called once per frame
     void Update()
@@ -67,6 +74,7 @@ public class WeaponManager : MonoBehaviour
                 currentWeapon = SelectedWeaponType.Pistol;
                 currentCooldown = pistolCooldown;
                 reloadCooldown.startTimer();
+                ChangeWeapon("pistol");
             }
             else if (Input.GetKeyUp(KeyCode.Alpha2) && hasShotgun)
             {
@@ -74,6 +82,7 @@ public class WeaponManager : MonoBehaviour
                 currentWeapon = SelectedWeaponType.Shotgun;
                 currentCooldown = shotgunCooldown;
                 reloadCooldown.startTimer();
+                ChangeWeapon("shotgun");
             }
             else if (Input.GetKeyUp(KeyCode.Alpha3) && hasHammer)
             {
@@ -81,6 +90,7 @@ public class WeaponManager : MonoBehaviour
                 currentWeapon = SelectedWeaponType.Hammer;
                 currentCooldown = hammerCooldown;
                 reloadCooldown.startTimer();
+                ChangeWeapon("hammer");
             }
         }
 
@@ -155,6 +165,22 @@ public class WeaponManager : MonoBehaviour
             case SelectedWeaponType.Hammer:
                 hasHammer = true;
                 break;
+        }
+    }
+
+    private void ChangeWeapon(string name)
+    {
+        if(weapons)
+        foreach (Transform item in weapons)
+        {
+            if (item.gameObject.name == name)
+            {
+                item.gameObject.SetActive(true);
+            }
+            else
+            {
+                item.gameObject.SetActive(false);
+            }
         }
     }
 }

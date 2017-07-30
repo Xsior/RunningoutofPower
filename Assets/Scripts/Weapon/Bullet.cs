@@ -79,7 +79,14 @@ public class Bullet : MonoBehaviour {
     {
         if(collision.tag == "Enemy")
         {
-            collision.GetComponent<EnemyController>().DealDamage(bulletDamage);
+            if (collision.GetComponent<EnemyController>())
+            {
+                collision.GetComponent<EnemyController>().DealDamage(bulletDamage);
+            }
+            if (collision.GetComponent<EnemyStandingController>())
+            {
+                collision.GetComponent<EnemyStandingController>().DealDamage(bulletDamage);
+            }
             Destroy(gameObject);
         }
     }

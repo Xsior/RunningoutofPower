@@ -32,7 +32,7 @@ public class WeaponManager : MonoBehaviour
     }
     public WeaponManager()
     {
-        
+
     }
     public void Start()
     {
@@ -44,7 +44,7 @@ public class WeaponManager : MonoBehaviour
         currentWeapon = SelectedWeaponType.Hammer;
 
         ChangeWeapon("hammer");
-        
+
         pistolCooldown = GetComponents<Cooldown>()[0];
         shotgunCooldown = GetComponents<Cooldown>()[1];
         reloadCooldown = GetComponents<Cooldown>()[2];
@@ -121,7 +121,7 @@ public class WeaponManager : MonoBehaviour
                         {
                             shotgunCooldown.startTimer();
                             EquippedWeapon.Attack();
-                            
+
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Stop();
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.volume = 0.7f;
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.clip =
@@ -145,10 +145,10 @@ public class WeaponManager : MonoBehaviour
 
                             hammerCooldown.startTimer();
                             EquippedWeapon.Attack();
-                            if(animHammer)
-                            animHammer.SetTrigger("Attack");
+                            if (animHammer)
+                                animHammer.SetTrigger("Attack");
 
-                            
+
                         }
                     }
                     break;
@@ -170,6 +170,8 @@ public class WeaponManager : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (gameObject.layer == LayerMask.GetMask("Light"))
+            return;
         if (collision.tag == "Enemy" || collision.tag == "Chest")
         {
             triggeredEnemy = null;
@@ -194,17 +196,20 @@ public class WeaponManager : MonoBehaviour
 
     private void ChangeWeapon(string name)
     {
-        if(weapons)
-        foreach (Transform item in weapons)
+        if (weapons)
         {
-            if (item.gameObject.name == name)
+            foreach (Transform item in weapons)
             {
-                item.gameObject.SetActive(true);
-            }
-            else
-            {
-                item.gameObject.SetActive(false);
+                if (item.gameObject.name == name)
+                {
+                    item.gameObject.SetActive(true);
+                }
+                else
+                {
+                    item.gameObject.SetActive(false);
+                }
             }
         }
+
     }
 }

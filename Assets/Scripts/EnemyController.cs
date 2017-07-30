@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +20,12 @@ public class EnemyController : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource enemyScream;
     public AudioSource enemyCry;
-    
+
+    bool ded = false;
+
+    float cryVolume = 1f;
+
+
 
     float Hp
     {
@@ -41,9 +47,12 @@ public class EnemyController : MonoBehaviour
     }
     public IEnumerator playSoundToEnd()
     {
-        yield return new WaitForSeconds(1f);
-        spawner.Kill(transform);
+        ded = true;
+        GetComponent<SpriteRenderer>().enabled = false;
         enemyScream.Play();
+        yield return new WaitForSeconds(1.25f);
+        spawner.Kill(transform);
+        
         enabled = false;
         gameObject.SetActive(false);
     }
@@ -66,17 +75,24 @@ public class EnemyController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        ded = false;
+        GetComponent<SpriteRenderer>().enabled = true;
         player = GameObject.FindGameObjectWithTag("Player");
         attackCooldown = GetComponent<Cooldown>();
         hp = startingHp;
         spawner = FindObjectOfType<EnemySpawner>();
+        Tween t = DOTween.To(() => cryVolume, x => cryVolume = x, 0.2f, 10f);
         //attackCooldown.SetCooldownTime(2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleMovement();
+        if(!ded)
+        {
+            HandleMovement();
+        }
+        enemyCry.volume = cryVolume;
     }
 
     void HandleMovement()
@@ -115,7 +131,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !ded)
         {
             if (attackCooldown.canUse)
             {
@@ -128,7 +144,7 @@ public class EnemyController : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !ded)
         {
             if (attackCooldown.canUse)
             {

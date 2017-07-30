@@ -78,11 +78,11 @@ public class SanityController : MonoBehaviour
         } while (sign == 0);
         do
         {
-            direction = Quaternion.Euler(0, 0, sign * Random.Range(lightDegrees, 80)) * transform.up;
+            transform.TransformDirection(direction = Quaternion.Euler(0, 0, sign * Random.Range(lightDegrees, 100)) * transform.up);
             r = Physics2D.Raycast(transform.position, direction.normalized);
             Debug.Log(r.distance);
-        } while (r.distance < 1.5f);
-        spawner.SpawanEnemy(direction.normalized * Random.Range(1.5f, r.distance));
+        } while (r.distance < 3.5f);
+        spawner.SpawanEnemy(transform.position + (direction.normalized * Random.Range(2f, 3f)));
     }
     private void SpawnHandler()
     {
@@ -90,10 +90,8 @@ public class SanityController : MonoBehaviour
         if (currentSanity < 90)
         {
             int i = 1;
-            if (currentSanity > 60)
-            {
-                i = 1;
-            }
+            i =1 -(int)(currentSanity - 100) / 20;
+            //Debug.Log(i);
             if (spawnTimer.canUse && spawner.enemyCount() < i)
             {
                 spawnTimer.SetCooldownTime(Random.Range(currentSanity / 100 * 2f, currentSanity / 100 * 10f));

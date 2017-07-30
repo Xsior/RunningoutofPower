@@ -8,11 +8,12 @@ public class WeaponManager : MonoBehaviour
     {
         Pistol, Shotgun, Hammer, None
     }
-    private WeaponBase EquippedWeapon;
+    public WeaponBase EquippedWeapon;
     private Cooldown pistolCooldown;
     private Cooldown shotgunCooldown;
     private Cooldown reloadCooldown;
     private Cooldown hammerCooldown;
+    public Cooldown currentCooldown;
     public GameObject triggeredEnemy;
     public SObject Cooldowns;
 
@@ -20,7 +21,7 @@ public class WeaponManager : MonoBehaviour
     public bool hasShotgun;
     public bool hasHammer;
 
-    SelectedWeaponType currentWeapon;
+    public SelectedWeaponType currentWeapon;
     // Use this for initialization
     public void Awake()
     {
@@ -34,11 +35,12 @@ public class WeaponManager : MonoBehaviour
         hasPistol = false;
         hasShotgun = false;
         hasHammer = true;
-        EquippedWeapon = new Pistol(this);
+        EquippedWeapon = new Hammer(this);
         pistolCooldown = GetComponents<Cooldown>()[0];
         shotgunCooldown = GetComponents<Cooldown>()[1];
         reloadCooldown = GetComponents<Cooldown>()[2];
         hammerCooldown = GetComponents<Cooldown>()[3];
+        currentCooldown = GetComponents<Cooldown>()[4];
         triggeredEnemy = null;
         currentWeapon = SelectedWeaponType.None;
         pistolCooldown.SetCooldownTime(Cooldowns.PistolCooldown);
@@ -56,22 +58,25 @@ public class WeaponManager : MonoBehaviour
     {
         if (reloadCooldown.canUse)
         {
-            if (Input.GetKeyUp(KeyCode.Alpha1))
+            if (Input.GetKeyUp(KeyCode.Alpha1) && hasPistol)
             {
                 EquippedWeapon = new Pistol(this);
                 currentWeapon = SelectedWeaponType.Pistol;
+                currentCooldown = pistolCooldown;
                 reloadCooldown.startTimer();
             }
-            else if (Input.GetKeyUp(KeyCode.Alpha2))
+            else if (Input.GetKeyUp(KeyCode.Alpha2) && hasShotgun)
             {
                 EquippedWeapon = new Shotgun(this);
                 currentWeapon = SelectedWeaponType.Shotgun;
+                currentCooldown = shotgunCooldown;
                 reloadCooldown.startTimer();
             }
-            else if (Input.GetKeyUp(KeyCode.Alpha3))
+            else if (Input.GetKeyUp(KeyCode.Alpha3) && hasHammer)
             {
                 EquippedWeapon = new Hammer(this);
                 currentWeapon = SelectedWeaponType.Hammer;
+                currentCooldown = hammerCooldown;
                 reloadCooldown.startTimer();
             }
         }
@@ -132,7 +137,7 @@ public class WeaponManager : MonoBehaviour
 
     public void AddWeapon(SelectedWeaponType type)
     {
-        switch(type )
+        switch (type)
         {
             case SelectedWeaponType.Pistol:
                 hasPistol = true;

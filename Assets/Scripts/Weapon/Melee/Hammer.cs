@@ -15,10 +15,17 @@ public class Hammer : WeaponBase
         //base.Attack();
         if (parent.triggeredEnemy != null)
         {
-            if(parent.triggeredEnemy.tag == "Player")
+            if(parent.triggeredEnemy.tag == "Enemy")
+            {
                 parent.triggeredEnemy.GetComponent<EnemyController>().DealDamage(50);
-            if (parent.triggeredEnemy.tag == "Chest")
+                return;
+            }
+            else if (parent.triggeredEnemy.tag == "Chest")
+            {
                 parent.triggeredEnemy.GetComponent<Chest>().Hit();
+                return;
+            }
+
         }
 
     }

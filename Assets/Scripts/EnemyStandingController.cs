@@ -62,7 +62,10 @@ public class EnemyStandingController : MonoBehaviour
 
     void HandleMovement()
     {
-        
+        if (Vector2.Distance(player.transform.position, transform.position) < 1)
+        {
+            targetLocked = true;
+        }
             if (targetLocked) ChasePlayer();
     }
 

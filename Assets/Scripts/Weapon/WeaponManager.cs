@@ -21,6 +21,8 @@ public class WeaponManager : MonoBehaviour
     public bool hasShotgun;
     public bool hasHammer;
 
+    [SerializeField] private Animator animHammer;
+
     public SelectedWeaponType currentWeapon;
     // Use this for initialization
     public void Awake()
@@ -111,6 +113,8 @@ public class WeaponManager : MonoBehaviour
                         {
                             hammerCooldown.startTimer();
                             EquippedWeapon.Attack();
+                            if(animHammer)
+                            animHammer.SetTrigger("Attack");
                         }
                     }
                     break;

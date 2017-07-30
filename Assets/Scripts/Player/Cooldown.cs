@@ -6,7 +6,7 @@ using System.Text;
 
 public class Cooldown : MonoBehaviour
 {
-    private float timerValue;
+    public float timerValue;
     private bool isTimerRunning;
 
     public bool canUse;

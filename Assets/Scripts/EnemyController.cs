@@ -29,16 +29,22 @@ public class EnemyController : MonoBehaviour
             hp = value;
             if (hp <= 0)
             {
-                spawner.Kill(transform);
-                enemyScream.Play();
-                StartCoroutine(playSoundToEnd());
+                
+                if(isActiveAndEnabled)
+                {
+                    StartCoroutine(playSoundToEnd());
+                }
+               
                 
             }
         }
     }
     public IEnumerator playSoundToEnd()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
+        spawner.Kill(transform);
+        enemyScream.Play();
+        enabled = false;
         gameObject.SetActive(false);
     }
 

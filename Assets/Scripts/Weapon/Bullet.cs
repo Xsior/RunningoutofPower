@@ -14,15 +14,23 @@ public class Bullet : MonoBehaviour {
     bool isFiredPistol = false;
     bool isFiredShotgun = false;
     public float bulletDamage;
+
+    private Vector3 direction;
+
+    private void Start()
+    {
+        direction = GameObject.FindWithTag("Player").transform.up;
+    }
+
     public void FixedUpdate()
     {
         if(isFiredPistol)
         {
-            GetComponent<Rigidbody2D>().AddForce(GameObject.FindWithTag("Player").transform.up * bulletSpeed);
+            GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed);
         }
         if (isFiredShotgun)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector3(GameObject.FindWithTag("Player").transform.up.x + Random.Range(0.7f, -0.7f), GameObject.FindWithTag("Player").transform.up.y , GameObject.FindWithTag("Player").transform.up.z + Random.Range(0.7f,-0.7f)) * bulletSpeed);
+            GetComponent<Rigidbody2D>().AddForce(new Vector3(direction.x + Random.Range(0.7f, -0.7f), direction.y , direction.z + Random.Range(0.7f,-0.7f)) * bulletSpeed);
         }
     }
 

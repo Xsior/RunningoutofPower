@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 114691335111131774}
   - component: {fileID: 81431458624955740}
   - component: {fileID: 95701102226275174}
+  - component: {fileID: 114254115239255380}
   m_Layer: 0
   m_Name: PlayerMirrorImage
   m_TagString: Untagged
@@ -102,7 +103,6 @@ GameObject:
   - component: {fileID: 114615707981449556}
   - component: {fileID: 23440847414229006}
   - component: {fileID: 33605433075733212}
-  - component: {fileID: 60904036584697068}
   - component: {fileID: 114361305438631802}
   m_Layer: 8
   m_Name: Flashlight
@@ -174,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1101887709702102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.217499, y: -12.345001, z: 0}
+  m_LocalPosition: {x: -15.217499, y: -16.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4996810630504230}
@@ -362,40 +362,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.38
---- !u!60 &60904036584697068
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1482129089738150}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.0028889177, y: 2.402}
-      - {x: -0.43992305, y: 2.1934664}
-      - {x: -0.15941252, y: 0.6724205}
-      - {x: -0.07120559, y: 0.2710826}
-      - {x: -0.16209312, y: 0.010988852}
-      - {x: -0.03898089, y: -0.36775145}
-      - {x: 0.09201427, y: -0.2536273}
-      - {x: 0.15570873, y: 0.026620805}
-      - {x: 0.08563499, y: 0.19661376}
-      - {x: 0.4633345, y: 2.2539883}
 --- !u!61 &61393827028634094
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -593,6 +559,17 @@ MonoBehaviour:
   timerValue: 0
   canUse: 0
   cooldownTime: 0
+--- !u!114 &114254115239255380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1235072492660914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e7b67aae1a35847a182bb0cbd3b2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114361305438631802
 MonoBehaviour:
   m_ObjectHideFlags: 1

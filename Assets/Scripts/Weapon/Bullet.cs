@@ -10,12 +10,12 @@ public class Bullet : MonoBehaviour {
     }
     private float lifeTime = 10.0f;
     private float lifeTimer = 0;
-    private float bulletSpeed = 0.0001f;
+    private float bulletSpeed = 1;
     bool isFiredPistol = false;
     bool isFiredShotgun = false;
     public float bulletDamage;
 
-    private Vector3 direction;
+    private Vector2 direction;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour {
         }
         if (isFiredShotgun)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector3(direction.x + Random.Range(0.7f, -0.7f), direction.y, direction.z + Random.Range(0.7f, -0.7f)) * bulletSpeed, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x + Random.Range(0.7f, -0.7f), direction.y + Random.Range(0.7f, -0.7f)) * bulletSpeed, ForceMode2D.Impulse);
         }
     }
 
@@ -87,7 +87,8 @@ public class Bullet : MonoBehaviour {
             {
                 collision.GetComponent<EnemyStandingController>().DealDamage(bulletDamage);
             }
-            Destroy(gameObject);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 }

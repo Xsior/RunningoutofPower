@@ -29,12 +29,14 @@ public class Chest : MonoBehaviour {
             if(Reward == ChestReward.Shotgun)
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Shotgun);
-                shotgunanimation.gameObject.SetActive(true);
+                if (shotgunanimation != null)
+                    shotgunanimation.gameObject.SetActive(true);
             }
             if (Reward == ChestReward.Pistol)
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Pistol);
-                pistolAnimation.gameObject.SetActive(true);
+                if(pistolAnimation != null)
+                    pistolAnimation.gameObject.SetActive(true);
             }
             if (Reward == ChestReward.Battery)
                 GameObject.FindGameObjectWithTag("Player").GetComponent<LightsController>().AddBattery(20);

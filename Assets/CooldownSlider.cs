@@ -9,8 +9,6 @@ public class CooldownSlider : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         WM = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>();
-        Debug.Log(this.GetComponent<Slider>().value);
-        GetComponent<Slider>().value = 0.01f;
     }
 	
 	// Update is called once per frame

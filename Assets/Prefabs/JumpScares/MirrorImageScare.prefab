@@ -37,8 +37,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4962600371295966}
-  - component: {fileID: 58759284395481666}
   - component: {fileID: 114188361595985946}
+  - component: {fileID: 61393827028634094}
   m_Layer: 0
   m_Name: MirrorImageScare
   m_TagString: Untagged
@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 58541434111986518}
   - component: {fileID: 114058208622351204}
   - component: {fileID: 114913911946117834}
-  - component: {fileID: 61926903843187082}
   - component: {fileID: 114205818602553234}
   - component: {fileID: 114406538518039558}
   - component: {fileID: 114931198959296956}
@@ -144,8 +143,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1101887709702102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.09, y: 17.7, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.217499, y: -12.345001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4996810630504230}
@@ -172,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1235072492660914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3999996, y: 0.01999855, z: 0}
+  m_LocalPosition: {x: -1.12, y: -6.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4978390720207178}
@@ -326,27 +325,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.38
---- !u!58 &58759284395481666
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1101887709702102}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 0.38
 --- !u!60 &60904036584697068
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -381,30 +365,30 @@ PolygonCollider2D:
       - {x: 0.15570873, y: 0.026620805}
       - {x: 0.08563499, y: 0.19661376}
       - {x: 0.4633345, y: 2.2539883}
---- !u!61 &61926903843187082
+--- !u!61 &61393827028634094
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1235072492660914}
+  m_GameObject: {fileID: 1101887709702102}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.61}
+  m_Offset: {x: -0.3325863, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 12.614307, y: 1}
   m_EdgeRadius: 0
 --- !u!81 &81431458624955740
 AudioListener:
@@ -467,6 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerValue: 0
   canUse: 0
   cooldownTime: 0
 --- !u!114 &114361305438631802
@@ -491,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerValue: 0
   canUse: 0
   cooldownTime: 0
 --- !u!114 &114510173297157420
@@ -538,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerValue: 0
   canUse: 0
   cooldownTime: 0
 --- !u!114 &114772519533278772
@@ -568,11 +555,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a18412c82373a8478953d51680024e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EquippedWeapon: {fileID: 0}
+  currentCooldown: {fileID: 0}
   triggeredEnemy: {fileID: 0}
   Cooldowns: {fileID: 11400000, guid: 76e8f940055e99b44afa9e3ba5b41f9e, type: 2}
   hasPistol: 0
   hasShotgun: 0
   hasHammer: 0
+  currentWeapon: 0
 --- !u!114 &114931198959296956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -584,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerValue: 0
   canUse: 0
   cooldownTime: 0
 --- !u!212 &212133647438421844

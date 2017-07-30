@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundJumpScare : JumpScareBase
 {
+    float volume = 1f;
 	void Start ()
     {
         audioSource = GetComponent<AudioSource>();
@@ -11,8 +13,9 @@ public class SoundJumpScare : JumpScareBase
 	
 	void Update ()
     {
-        
-	}
+        audioSource.volume = volume;
+
+    }
     
 
     public override void OnJumpScareExecution()
@@ -22,6 +25,8 @@ public class SoundJumpScare : JumpScareBase
             jumpsScareDone = true;
             audioSource.Play();
             collidedObject.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(5f);
+
+            Tween t = DOTween.To(() => volume, x => volume = x, 0, 6f);
         }
     }
 }

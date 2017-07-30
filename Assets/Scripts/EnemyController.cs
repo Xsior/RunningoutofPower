@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     }
     public void SpeedBoost()
     {
-        speeedboost = 1.6f;
+        speeedboost = 2.8f;
     }
     public void SpeedNo()
     {
@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
         {
             
 
-            GetComponent<Rigidbody2D>().velocity = (direction * 250 * speeedboost * Time.deltaTime);
+            GetComponent<Rigidbody2D>().velocity = (direction * 95 * speeedboost * Time.deltaTime);
         }
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }

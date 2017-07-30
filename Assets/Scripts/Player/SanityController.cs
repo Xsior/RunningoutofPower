@@ -96,13 +96,13 @@ public class SanityController : MonoBehaviour
             if (scaryTime)
             {
                 int i = 1;
-                i = 1 - (int)(currentSanity - 100) / 20;
+                i = 1 - (int)(currentSanity - 100) / 7;
 
                 if (spawnTimer.canUse && spawner.enemyCount() < i)
                 {
                     if (OnTimerElapsed())
                     {
-                        spawnTimer.SetCooldownTime(Random.Range(currentSanity / 100 * 2f, currentSanity / 100 * 10f));
+                        spawnTimer.SetCooldownTime(Random.Range(currentSanity / 100 * 1.2f, currentSanity / 100 * 7f));
                         spawnTimer.startTimer();
                     }
                 }

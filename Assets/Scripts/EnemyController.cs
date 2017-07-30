@@ -13,18 +13,23 @@ public class EnemyController : MonoBehaviour
     float attackDamage = 10;
     float hp;
     float speeedboost = 1f;
+    EnemySpawner spawner;
     float Hp
     {
         get { return hp; }
         set
         {
             hp = value;
-            if (hp <= 0) gameObject.SetActive(false);
+            if (hp <= 0)
+            {
+                spawner.Kill(transform);
+                gameObject.SetActive(false);
+            }
         }
     }
     public void SpeedBoost()
     {
-        speeedboost = 2.8f;
+        speeedboost = 3f;
     }
     public void SpeedNo()
     {
@@ -38,16 +43,17 @@ public class EnemyController : MonoBehaviour
         targetLocked = false;
     }
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         attackCooldown = GetComponent<Cooldown>();
         hp = startingHp;
+        spawner = FindObjectOfType<EnemySpawner>();
         //attackCooldown.SetCooldownTime(2f);
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         HandleMovement();
     }
@@ -60,7 +66,7 @@ public class EnemyController : MonoBehaviour
         }
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        if(targetLocked) ChasePlayer();
+        if (targetLocked) ChasePlayer();
     }
 
     void ChasePlayer()
@@ -77,18 +83,18 @@ public class EnemyController : MonoBehaviour
 
         if (Vector2.Distance(player.transform.position, transform.position) > 0.5f)
         {
-            
 
-            GetComponent<Rigidbody2D>().velocity = (direction * 95 * speeedboost * Time.deltaTime);
+
+            GetComponent<Rigidbody2D>().velocity = (direction * 50 * speeedboost * Time.deltaTime);
         }
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
-    
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (attackCooldown.canUse)
             {
@@ -96,7 +102,7 @@ public class EnemyController : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(attackDamage);
             }
         }
-        
+
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -108,7 +114,7 @@ public class EnemyController : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerController>().sanityContr.DealSanityDamage(attackDamage);
             }
         }
-        
+
     }
 
     public void DealDamage(float damage)

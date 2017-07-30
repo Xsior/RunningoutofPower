@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 114423064075580632}
   - component: {fileID: 114892956730953310}
   - component: {fileID: 81191419364150984}
+  - component: {fileID: 95097807300736370}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -414,7 +415,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -430,6 +431,23 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248582741500692}
   m_Enabled: 1
+--- !u!95 &95097807300736370
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5cacd5ad10b7e864f9e2b830e90a372f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95749513543864652
 Animator:
   serializedVersion: 3
@@ -559,6 +577,7 @@ MonoBehaviour:
   sanityLightRatio: 1
   sanityEnemyRatio: 1
   spawnTimer: {fileID: 114739991560348380}
+  dmgParticle: {fileID: 198167936371210168}
 --- !u!114 &114448091668208586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3992,7 +4011,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736329759
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a00b6b2f9cc772441ac8caa223ec8907, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af5f61cda2f1c9848a66101614b0eed8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

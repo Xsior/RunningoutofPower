@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 
     private float currentHp;
 
+    private Animator anim;
+
     Vector3 mousePoint;
     public float speed = 10;
     public SanityController sanityContr;
@@ -15,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         sanityContr = GetComponent<SanityController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,9 +40,13 @@ public class PlayerController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         if (v == 0 && h == 0)
         {
+            anim.SetBool("isWalking", false);
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
-
+        else
+        {
+            anim.SetBool("isWalking", true);
+        }
         Vector2 direction = new Vector3(h, v).normalized;
         GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.deltaTime);
     }

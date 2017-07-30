@@ -19,13 +19,11 @@ public class EnemySpawner : MonoBehaviour {
 
     public void SpawanEnemy(Vector3 pos)
     {
-        Debug.Log("Hi");
         foreach(Transform t in enemies)
         {
             if(t.gameObject.activeSelf == false)
             {
                 t.parent = player;
-                Debug.Log("spawning");
                 t.position = pos;
                 t.GetComponent<EnemyController>().ResetForSpawn();
                 activeEnemies.Add(t);

@@ -30,15 +30,15 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4633500224469202
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398719398562490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.54, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.1850204, y: 0.38573074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerValue: 0
   canUse: 0
   cooldownTime: 2
 --- !u!114 &114853087511860754
@@ -113,7 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf699858707a7f44adff33de443696a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHp: 100
   attackCooldown: {fileID: 0}
+  speed: 35
 --- !u!212 &212973133014956358
 SpriteRenderer:
   m_ObjectHideFlags: 1

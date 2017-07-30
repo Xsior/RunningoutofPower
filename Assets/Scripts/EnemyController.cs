@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     float attackDamage = 10;
     float hp;
     float speeedboost = 1f;
+    public float speed;
     EnemySpawner spawner;
     float Hp
     {
@@ -85,7 +86,7 @@ public class EnemyController : MonoBehaviour
         {
 
 
-            GetComponent<Rigidbody2D>().velocity = (direction * 50 * speeedboost * Time.deltaTime);
+            GetComponent<Rigidbody2D>().velocity = (direction * speed * speeedboost * Time.deltaTime);
         }
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }

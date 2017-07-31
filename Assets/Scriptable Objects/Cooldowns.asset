@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShotgunCooldown: 1
   PistolCooldown: 0.5
-  HammerCooldown: 0.5
+  HammerCooldown: 0.75
   Reloadcooldown: 1

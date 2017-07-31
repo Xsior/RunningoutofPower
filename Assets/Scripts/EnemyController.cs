@@ -63,8 +63,11 @@ public class EnemyController : MonoBehaviour
     void Die()
     {
         ded = true;
+        GetComponent<Animator>().SetTrigger("Die");
         GetComponent<SpriteRenderer>().enabled = false;
-        enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0; enabled = false;
         gameObject.SetActive(false);
         spawner.Kill(transform);
     }
@@ -101,7 +104,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!ded)
         {
@@ -141,7 +144,7 @@ public class EnemyController : MonoBehaviour
         {
 
 
-            GetComponent<Rigidbody2D>().velocity = (direction * speed * speeedboost * Time.deltaTime);
+            GetComponent<Rigidbody2D>().velocity = (direction * speed * speeedboost * Time.fixedDeltaTime);
         }
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }

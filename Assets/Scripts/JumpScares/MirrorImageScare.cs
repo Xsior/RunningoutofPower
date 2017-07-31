@@ -20,7 +20,7 @@ public class MirrorImageScare : JumpScareBase
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //if(goingStarted)
         //{
@@ -70,7 +70,7 @@ public class MirrorImageScare : JumpScareBase
 
         mirrorImage.transform.rotation = new Quaternion(0, 0, q.z, q.w);
 
-        mirrorImage.GetComponent<Rigidbody2D>().velocity = (direction * 250 * speed * Time.deltaTime);
+        mirrorImage.GetComponent<Rigidbody2D>().velocity = (direction * 250 * speed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -66,7 +66,7 @@ public class EnemyStandingController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         HandleMovement();
     }
@@ -96,7 +96,7 @@ public class EnemyStandingController : MonoBehaviour
         {
 
 
-            GetComponent<Rigidbody2D>().velocity = (direction * 50 * speeedboost * Time.deltaTime);
+            GetComponent<Rigidbody2D>().velocity = (direction * 50 * speeedboost * Time.fixedDeltaTime);
         }
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }

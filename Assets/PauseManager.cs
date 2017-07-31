@@ -6,17 +6,20 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour {
 
     public GameObject PauseScreen;
+
+    public static PauseManager instance;
     enum KeyPressed
     {
         Pressed,
         None
     }
-    bool isPaused;
+    public bool isPaused;
     KeyPressed key;
 	// Use this for initialization
 	void Start () {
         key = KeyPressed.None;
         isPaused = false;
+	    instance = this;
 	}
 	
 	// Update is called once per frame
@@ -31,26 +34,17 @@ public class PauseManager : MonoBehaviour {
             }
             if (isPaused == true && key == KeyPressed.None)
             {
-
+                isPaused = false;
                 key = KeyPressed.Pressed;
                 Time.timeScale = 1;
-                SceneManager.LoadScene("MainMenu");
+                PauseScreen.SetActive(false);
             }
         }
         if(Input.GetKeyUp(KeyCode.Escape) && key == KeyPressed.Pressed)
         {
             key = KeyPressed.None;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && key == KeyPressed.None)
-        {
-            if (isPaused == true && key == KeyPressed.None)
-            {
 
-                isPaused = false;
-                key = KeyPressed.Pressed;
-                PauseScreen.SetActive(false);
-            }
-        }
         if (isPaused == true)
             Time.timeScale = 0;
         else

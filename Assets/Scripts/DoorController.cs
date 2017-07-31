@@ -72,12 +72,14 @@ public class DoorController : MonoBehaviour
     public void OpenDoor()
     {
         GetComponent<AudioSource>().Play();
-        transform.parent.GetComponent<SpriteRenderer>().sprite = opened;
+        transform.parent.Find("GameObject (1)").GetComponent<SpriteRenderer>().sprite = opened;
+        transform.parent.Find("GameObject (2)").GetComponent<SpriteRenderer>().sprite = opened;
         transform.parent.GetComponent<BoxCollider2D>().enabled = false;
     }
     public void CloseDoor()
     {
-        transform.parent.GetComponent<SpriteRenderer>().sprite = closed;
+        transform.parent.Find("GameObject (1)").GetComponent<SpriteRenderer>().sprite = closed;
+        transform.parent.Find("GameObject (2)").GetComponent<SpriteRenderer>().sprite = closed;
         transform.parent.GetComponent<BoxCollider2D>().enabled = true;
     }
 }

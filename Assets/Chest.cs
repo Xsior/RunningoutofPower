@@ -29,18 +29,18 @@ public class Chest : MonoBehaviour {
         {
             if(Reward == ChestReward.Shotgun)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Shotgun);
+                GameObject.Find("Weapons").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Shotgun);
                 if (shotgunanimation != null)
                     shotgunanimation.gameObject.SetActive(true);
             }
             if (Reward == ChestReward.Pistol)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Pistol);
+                GameObject.Find("Weapons").GetComponent<WeaponManager>().AddWeapon(WeaponManager.SelectedWeaponType.Pistol);
                 if(pistolAnimation != null)
                     pistolAnimation.gameObject.SetActive(true);
             }
             if (Reward == ChestReward.Battery)
-                GameObject.FindGameObjectWithTag("Player").GetComponent<LightsController>().AddBattery(40);
+                GameObject.Find("Weapons").GetComponent<LightsController>().AddBattery(40);
             Destroy(gameObject);
             Instantiate(Resources.Load("Zniszczenia"), transform.position, Quaternion.identity);
         }

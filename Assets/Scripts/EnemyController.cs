@@ -48,7 +48,11 @@ public class EnemyController : MonoBehaviour
     public IEnumerator playSoundToEnd()
     {
         ded = true;
+        GetComponent<Animator>().SetTrigger("Die");
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
         enemyScream.Play();
         yield return new WaitForSeconds(1.25f);
         spawner.Kill(transform);

@@ -8,6 +8,7 @@ public class KeyController : MonoBehaviour
 
     SpriteRenderer sprite;
     public int keyId = 1;
+    public GameObject keyAnim;
 
     private void Start()
     {
@@ -23,6 +24,8 @@ public class KeyController : MonoBehaviour
                 gameObject.SetActive(false);
                 KeyCollector.AddKey(keyId);
                 KeyCollector.VerboseKeys();
+                if (keyAnim != null)
+                    keyAnim.gameObject.SetActive(true);
             }
     }
 }

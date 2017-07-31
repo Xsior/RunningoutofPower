@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bullet : MonoBehaviour {
     public enum BulletType
@@ -14,20 +16,26 @@ public class Bullet : MonoBehaviour {
     bool isFiredPistol = false;
     bool isFiredShotgun = false;
     public float bulletDamage;
+    private float fireSpread;
 
     private Vector2 direction;
 
     private void Start()
     {
-        direction = GameObject.FindWithTag("Player").transform.up;
-
-        if (isFiredPistol)
+        if (direction != null)
         {
-            GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
-        }
-        if (isFiredShotgun)
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x + Random.Range(0.7f, -0.7f), direction.y + Random.Range(0.7f, -0.7f)) * bulletSpeed, ForceMode2D.Impulse);
+            direction.Normalize();
+            if (isFiredPistol)
+            {
+                GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
+            }
+            if (isFiredShotgun)
+            {
+                GetComponent<Rigidbody2D>()
+                    .AddForce(
+                        new Vector2(direction.x + Random.Range(fireSpread, -fireSpread), direction.y + Random.Range(fireSpread, -fireSpread)) *
+                        bulletSpeed, ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -53,11 +61,13 @@ public class Bullet : MonoBehaviour {
     }
 
 
-    public void SetProperties(float BulletSpeed, float LifeTime, float BulletDamage)
+    public void SetProperties(float BulletSpeed, float LifeTime, float BulletDamage, Vector3 direction, float fireSpread = 0)
     {
         this.lifeTime = LifeTime;
         this.bulletSpeed = BulletSpeed;
         this.bulletDamage = BulletDamage;
+        this.direction = direction;
+        this.fireSpread = fireSpread;
     }
 
     public void FireBullet(BulletType bulletType)

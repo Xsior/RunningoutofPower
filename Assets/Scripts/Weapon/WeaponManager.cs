@@ -25,6 +25,9 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] private Transform weapons;
 
+    [SerializeField]
+    private Damges dmg;
+
     public SelectedWeaponType currentWeapon;
     // Use this for initialization
     public void Awake()
@@ -39,7 +42,7 @@ public class WeaponManager : MonoBehaviour
         hasPistol = false;
         hasShotgun = false;
         hasHammer = true;
-        EquippedWeapon = new Hammer(this);
+        EquippedWeapon = new Hammer(this, dmg.hammerDmg);
 
         currentWeapon = SelectedWeaponType.Hammer;
 
@@ -70,7 +73,7 @@ public class WeaponManager : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.Alpha1) && hasPistol)
             {
-                EquippedWeapon = new Pistol(this);
+                EquippedWeapon = new Pistol(this, weapons.Find("pistol"), dmg.pistolDmg);
                 currentWeapon = SelectedWeaponType.Pistol;
                 currentCooldown = pistolCooldown;
                 reloadCooldown.startTimer();
@@ -78,7 +81,7 @@ public class WeaponManager : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.Alpha2) && hasShotgun)
             {
-                EquippedWeapon = new Shotgun(this);
+                EquippedWeapon = new Shotgun(this, weapons.Find("shotgun"), dmg);
                 currentWeapon = SelectedWeaponType.Shotgun;
                 currentCooldown = shotgunCooldown;
                 reloadCooldown.startTimer();
@@ -86,7 +89,7 @@ public class WeaponManager : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.Alpha3) && hasHammer)
             {
-                EquippedWeapon = new Hammer(this);
+                EquippedWeapon = new Hammer(this, dmg.hammerDmg);
                 currentWeapon = SelectedWeaponType.Hammer;
                 currentCooldown = hammerCooldown;
                 reloadCooldown.startTimer();

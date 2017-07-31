@@ -75,7 +75,7 @@ public class FlashlightDetector : MonoBehaviour
     {
         if (saw)
         {
-            sanity.sanityEnemyRatio = 2f;
+            sanity.sanityEnemyRatio = 3.5f;
 
         }
         else

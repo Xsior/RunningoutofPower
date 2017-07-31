@@ -51,9 +51,9 @@ public class LightsController : MonoBehaviour
         if (battery <= 25 && flashlightEnabled)
         {
             RandomFlashlighOff();
-            if (sanity.sanityLightRatio != 1.25f)
+            if (sanity.sanityLightRatio != 1.4f)
             {
-                sanity.sanityLightRatio = 1.25f;
+                sanity.sanityLightRatio = 1.4f;
             }
             timerWait += Time.deltaTime;
         }
@@ -61,9 +61,9 @@ public class LightsController : MonoBehaviour
         {
             flashlight.SetActive(false);
             matchstick.SetActive(true);
-            if (sanity.sanityLightRatio != 1.5f)
+            if (sanity.sanityLightRatio != 2f)
             {
-                sanity.sanityLightRatio = 1.5f;
+                sanity.sanityLightRatio = 2f;
             }
             flashlightEnabled = false;
         }

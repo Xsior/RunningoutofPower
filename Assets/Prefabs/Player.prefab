@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 114659920265332888}
   - component: {fileID: 81137183565735258}
   - component: {fileID: 114706118575583786}
+  - component: {fileID: 114298669032986480}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -250,6 +251,7 @@ GameObject:
   - component: {fileID: 4913268725394458}
   - component: {fileID: 212192743450842354}
   - component: {fileID: 95124185790592578}
+  - component: {fileID: 61338720996348116}
   m_Layer: 0
   m_Name: hammer
   m_TagString: Untagged
@@ -996,13 +998,38 @@ PolygonCollider2D:
       - {x: 0.2728954, y: -0.05237174}
       - {x: 0.1403221, y: 0.4761258}
       - {x: 0.4633345, y: 2.2539883}
+--- !u!61 &61338720996348116
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700452383866114}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.4035002, y: 0.3919944}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.93532336, y: 0.04643449}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.38078582, y: 0.39210838}
+  m_EdgeRadius: 0
 --- !u!61 &61686965837493524
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248582741500692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1527,6 +1554,20 @@ MonoBehaviour:
   weapons: {fileID: 4033511955820740}
   dmg: {fileID: 11400000, guid: 6a638ff665b3e3447966b6be824c2f78, type: 2}
   currentWeapon: 0
+--- !u!114 &114298669032986480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 1
+  cooldownTime: 0
 --- !u!114 &114329231144664170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1608,7 +1649,7 @@ MonoBehaviour:
   sanityBar: {fileID: 0}
   sanityLightRatio: 1
   sanityEnemyRatio: 1
-  spawnTimer: {fileID: 114706118575583786}
+  spawnTimer: {fileID: 114298669032986480}
   dmgParticle: {fileID: 198167936371210168}
 --- !u!114 &114448091668208586
 MonoBehaviour:
@@ -1623,6 +1664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   sanityContr: {fileID: 114445941659377822}
+  walkingDisabled: 0
 --- !u!114 &114479061711762372
 MonoBehaviour:
   m_ObjectHideFlags: 1

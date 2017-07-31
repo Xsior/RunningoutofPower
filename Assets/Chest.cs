@@ -40,7 +40,7 @@ public class Chest : MonoBehaviour {
                     pistolAnimation.gameObject.SetActive(true);
             }
             if (Reward == ChestReward.Battery)
-                GameObject.FindGameObjectWithTag("Player").GetComponent<LightsController>().AddBattery(20);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<LightsController>().AddBattery(40);
             Destroy(gameObject);
             Instantiate(Resources.Load("Zniszczenia"), transform.position, Quaternion.identity);
         }

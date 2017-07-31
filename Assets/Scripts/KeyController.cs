@@ -22,7 +22,6 @@ public class KeyController : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 KeyCollector.AddKey(keyId);
-                KeyCollector.VerboseKeys();
             }
     }
 }

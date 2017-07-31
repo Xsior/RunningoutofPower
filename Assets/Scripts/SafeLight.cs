@@ -32,7 +32,7 @@ public class SafeLight : MonoBehaviour
                     {
                         cd.startTimer();
                     }
-                    Debug.Log("Safe");
+
                     collision.GetComponent<SanityController>().SafeHaven();
                 }
 

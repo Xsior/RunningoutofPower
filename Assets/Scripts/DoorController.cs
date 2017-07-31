@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -9,6 +10,7 @@ public class DoorController : MonoBehaviour
     private bool doorGo = false;
     public bool doorStatus = false; // true == otwarte, false == zamknięte
     float smallTimer = 0;
+    public GameObject UIText;
 
     [SerializeField] private Sprite opened, closed;
     void Start()
@@ -48,7 +50,8 @@ public class DoorController : MonoBehaviour
         {
             if (smallTimer <= 0 && coll.gameObject.tag == "Player" && doorStatus) //ten komunikat powinien się wyświetlić IFF drzwi zamknięte i gracz wbija w drzwi
             {
-
+                UIText.GetComponent<Text>().text = "Press E to close doors";
+                UIText.SetActive(true);
                 if (Input.GetButtonDown("E")) //drzwi otwiera i zamyka klawisz E
                 {
                     smallTimer = 0.15f;
@@ -58,6 +61,8 @@ public class DoorController : MonoBehaviour
             }
             else if (smallTimer <= 0 && coll.gameObject.tag == "Player" && !doorStatus)
             {
+                UIText.GetComponent<Text>().text = "Press E to open doors";
+                UIText.SetActive(true);
                 if (Input.GetButtonDown("E")) //drzwi otwiera i zamyka klawisz E
                 {
                     smallTimer = 0.15f;
@@ -66,6 +71,22 @@ public class DoorController : MonoBehaviour
                 }
             }
 
+        }
+        else
+        {
+            if(coll.tag == "Player")
+            {
+                UIText.GetComponent<Text>().text = "You need key to open";
+                UIText.SetActive(true);
+            }
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            UIText.SetActive(false);
         }
     }
 

@@ -112,7 +112,7 @@ public class SanityController : MonoBehaviour
                 {
                     if (OnTimerElapsed())
                     {
-                        spawnTimer.SetCooldownTime(UnityEngine.Random.Range(currentSanity / 100 * 1.2f, currentSanity / 100 * 7f));
+                        spawnTimer.SetCooldownTime(UnityEngine.Random.Range((currentSanity / 100 * 4f) + 1f, (currentSanity / 100 * 10f) + 2f));
                         spawnTimer.startTimer();
                     }
                 }

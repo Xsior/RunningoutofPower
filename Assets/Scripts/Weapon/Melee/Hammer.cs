@@ -21,7 +21,7 @@ public class Hammer : WeaponBase
                 {
                     parent.triggeredEnemy.GetComponent<EnemyController>().DealDamage(BulletDamage);
                 }
-                if(parent.triggeredEnemy.GetComponent<EnemyStandingController>())
+                else if(parent.triggeredEnemy.GetComponent<EnemyStandingController>())
                 {
                     parent.triggeredEnemy.GetComponent<EnemyStandingController>().DealDamage(BulletDamage);
                 }

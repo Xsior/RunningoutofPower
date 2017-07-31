@@ -12,7 +12,7 @@ public class EquippedWeaponManager : MonoBehaviour {
     WeaponManager WM;
 	// Use this for initialization
 	void Start () {
-        WM = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponManager>();
+        WM = GameObject.Find("Weapons").GetComponent<WeaponManager>();
 	}
 	
 	// Update is called once per frame

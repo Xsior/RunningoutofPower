@@ -63,7 +63,7 @@ public class SanityController : MonoBehaviour
     public void SafeHaven()
     {
         if (currentSanity < startingSanity)
-            CurrentSanity += 8 * sanityLostAmount * Time.deltaTime;
+            CurrentSanity += 15 * sanityLostAmount * Time.deltaTime;
     }
 
     public void DealSanityDamage(float sanityDamage)
@@ -78,7 +78,7 @@ public class SanityController : MonoBehaviour
 
     bool OnTimerElapsed()
     {
-        float lightDegrees = 80 + (currentSanity - 100) / 2;
+        float lightDegrees = 90 + (currentSanity - 100) ;
         RaycastHit2D r;
         Vector3 direction;
         int sign = 1;
@@ -106,7 +106,7 @@ public class SanityController : MonoBehaviour
             if (scaryTime)
             {
                 int i = 1;
-                i = 1 - (int)(currentSanity - 100) / 7;
+                i = 1 - (int)(currentSanity - 100) / 15;
 
                 if (spawnTimer.canUse && spawner.enemyCount() < i)
                 {

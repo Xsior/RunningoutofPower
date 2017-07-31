@@ -50,6 +50,21 @@ public class FlashlightDetector : MonoBehaviour
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
                     saw = true;
+                    if (hit.collider.gameObject.GetComponent<EnemyStandingController>() != null)
+                    {
+                        if (Vector2.Distance(transform.position, hit.collider.transform.position) < hit.collider.gameObject.GetComponent<EnemyStandingController>().detectionRange)
+                        {
+                            hit.collider.gameObject.GetComponent<EnemyStandingController>().SpeedBoost();
+                            hit.collider.gameObject.GetComponent<EnemyStandingController>().Seen();
+                        }
+
+
+                    }
+                    else if (collision.GetComponent<EnemyController>() != null)
+                    {
+
+                        hit.collider.gameObject.GetComponent<EnemyController>().SpeedBoost();
+                    }
                 }
             }
 

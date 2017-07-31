@@ -137,9 +137,7 @@ public class WeaponManager : MonoBehaviour
                     {
                         if (hammerCooldown.canUse && hasHammer)
                         {
-
-
-                            Debug.Log("chuj");
+                            
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.Stop();
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.volume = 1f;
                             GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().audioSource.clip =

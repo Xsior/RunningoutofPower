@@ -84,8 +84,8 @@ public class EnemyController : MonoBehaviour
         targetLocked = false;
         ded = false;
         enabled = true;
-        GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<SpriteRenderer>().enabled = true;
+        
+        GetComponent<Collider2D>().enabled = true;
 
     }
     // Use this for initialization

@@ -58,8 +58,9 @@ GameObject:
   - component: {fileID: 114632295323433074}
   - component: {fileID: 114235957355625620}
   - component: {fileID: 114902257203507196}
-  - component: {fileID: 81036501336143610}
   - component: {fileID: 114659920265332888}
+  - component: {fileID: 81137183565735258}
+  - component: {fileID: 114706118575583786}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1020,7 +1021,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!81 &81036501336143610
+--- !u!81 &81137183565735258
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1524,6 +1525,7 @@ MonoBehaviour:
   hasHammer: 0
   animHammer: {fileID: 95124185790592578}
   weapons: {fileID: 4033511955820740}
+  dmg: {fileID: 11400000, guid: 6a638ff665b3e3447966b6be824c2f78, type: 2}
   currentWeapon: 0
 --- !u!114 &114329231144664170
 MonoBehaviour:
@@ -1606,7 +1608,7 @@ MonoBehaviour:
   sanityBar: {fileID: 0}
   sanityLightRatio: 1
   sanityEnemyRatio: 1
-  spawnTimer: {fileID: 114659920265332888}
+  spawnTimer: {fileID: 114706118575583786}
   dmgParticle: {fileID: 198167936371210168}
 --- !u!114 &114448091668208586
 MonoBehaviour:
@@ -1695,6 +1697,20 @@ MonoBehaviour:
   canUse: 1
   cooldownTime: 0
 --- !u!114 &114664307597515400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 1
+  cooldownTime: 0
+--- !u!114 &114706118575583786
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

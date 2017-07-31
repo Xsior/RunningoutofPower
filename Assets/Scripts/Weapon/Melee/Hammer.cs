@@ -5,9 +5,9 @@ using UnityEngine;
 public class Hammer : WeaponBase
 {
 
-    public Hammer(WeaponManager parent) : base(parent)
+    public Hammer(WeaponManager parent, float dmg) : base(parent)
     {
-
+        BulletDamage = dmg;
     }
 
     public override void Attack()
@@ -19,11 +19,11 @@ public class Hammer : WeaponBase
             {
                 if (parent.triggeredEnemy.GetComponent<EnemyController>())
                 {
-                    parent.triggeredEnemy.GetComponent<EnemyController>().DealDamage(50);
+                    parent.triggeredEnemy.GetComponent<EnemyController>().DealDamage(BulletDamage);
                 }
                 if(parent.triggeredEnemy.GetComponent<EnemyStandingController>())
                 {
-                    parent.triggeredEnemy.GetComponent<EnemyStandingController>().DealDamage(50);
+                    parent.triggeredEnemy.GetComponent<EnemyStandingController>().DealDamage(BulletDamage);
                 }
                 GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.Stop();
                 GameObject.FindGameObjectWithTag("Player").transform.Find("PlayerSounds").GetComponent<PlayerSounds>().hammerHit.clip =

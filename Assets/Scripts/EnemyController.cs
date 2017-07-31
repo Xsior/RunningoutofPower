@@ -86,7 +86,7 @@ public class EnemyController : MonoBehaviour
         enabled = true;
         
         GetComponent<Collider2D>().enabled = true;
-
+        GetComponent<Animator>().SetTrigger("Walk");
     }
     // Use this for initialization
     void Start()

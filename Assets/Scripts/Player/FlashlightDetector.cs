@@ -19,13 +19,11 @@ public class FlashlightDetector : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Enemy")
             {
-                Debug.Log("It's a me, mario");
-                saw = false;
+                saw = true;
                 if (hit.collider.gameObject.GetComponent<EnemyStandingController>() != null)
                 {
                     if (Vector2.Distance(transform.position, hit.collider.transform.position) < hit.collider.gameObject.GetComponent<EnemyStandingController>().detectionRange)
                     {
-                        Debug.Log("Hello there");
                         hit.collider.gameObject.GetComponent<EnemyStandingController>().SpeedBoost();
                         hit.collider.gameObject.GetComponent<EnemyStandingController>().Seen();
                     }
@@ -34,6 +32,7 @@ public class FlashlightDetector : MonoBehaviour
                 }
                 else if (collision.GetComponent<EnemyController>() != null)
                 {
+
                     hit.collider.gameObject.GetComponent<EnemyController>().SpeedBoost();
                 }
 
@@ -58,16 +57,18 @@ public class FlashlightDetector : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        saw = false;
-        if (collision.gameObject.GetComponent<EnemyStandingController>() != null)
+        if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyStandingController>().SpeedNo();
+            saw = false;
+            if (collision.gameObject.GetComponent<EnemyStandingController>() != null)
+            {
+                collision.gameObject.GetComponent<EnemyStandingController>().SpeedNo();
 
-        }
-        else if (collision.GetComponent<EnemyController>() != null)
-        {
-            collision.gameObject.GetComponent<EnemyController>().SpeedNo();
+            }
+            else if (collision.GetComponent<EnemyController>() != null)
+            {
+                collision.gameObject.GetComponent<EnemyController>().SpeedNo();
+            }
         }
     }
     private void Update()

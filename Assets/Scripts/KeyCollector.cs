@@ -25,7 +25,7 @@ public static class KeyCollector  {
         {
             s += i + " ";
         }
-        Debug.Log(s);
+
     }
 
 

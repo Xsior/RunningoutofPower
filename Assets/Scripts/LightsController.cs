@@ -13,6 +13,12 @@ public class LightsController : MonoBehaviour
     private bool flashlightEnabled;
 
     private int battery;
+
+    public void SetBattery (int power)
+    {
+        battery = power;
+    }
+
     private float timer, timerWait;
     [SerializeField]
     private float speed = 1, wait = 0.5f;

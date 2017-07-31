@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Chest
   - MirrorImage
+  - ScriptedEnemy
   layers:
   - Default
   - TransparentFX

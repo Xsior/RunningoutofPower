@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10;
     public SanityController sanityContr;
 
- 
+    public bool walkingDisabled = false;
 
     // Use this for initialization
     void Start()
@@ -38,19 +39,25 @@ public class PlayerController : MonoBehaviour
     }
     void Movement()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        if (v == 0 && h == 0)
+        if (!walkingDisabled)
         {
-            anim.SetBool("isWalking", false);
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
+            if (v == 0 && h == 0)
+            {
+                anim.SetBool("isWalking", false);
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
+            else
+            {
+                anim.SetBool("isWalking", true);
+            }
+            Vector2 direction = new Vector3(h, v).normalized;
+            GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.fixedDeltaTime);
         }
-        else
-        {
-            anim.SetBool("isWalking", true);
-        }
-        Vector2 direction = new Vector3(h, v).normalized;
-        GetComponent<Rigidbody2D>().velocity = (direction * speed * 50 * Time.fixedDeltaTime);
+        else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+
     }
     void Rotation()
     {

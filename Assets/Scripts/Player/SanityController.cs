@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class SanityController : MonoBehaviour
     public float sanityEnemyRatio = 1f;
     public Cooldown spawnTimer;
     bool scaryTime = false;
-
+    public event EventHandler OnDeath;
     [SerializeField] private ParticleSystem dmgParticle;
 
     public float CurrentSanity
@@ -30,6 +31,7 @@ public class SanityController : MonoBehaviour
             {
                 currentSanity = 0;
                 //gameObject.SetActive(false);
+                if (OnDeath != null) OnDeath.Invoke(this, EventArgs.Empty);
             }
             else
             {
@@ -80,17 +82,17 @@ public class SanityController : MonoBehaviour
         RaycastHit2D r;
         Vector3 direction;
         int sign = 1;
-        if (Random.Range(0, 1) == 0)
+        if (UnityEngine.Random.Range(0, 1) == 0)
         {
             sign = -1;
         }
-        transform.TransformDirection(direction = Quaternion.Euler(0, 0, sign * Random.Range(lightDegrees, 100)) * transform.up);
+        transform.TransformDirection(direction = Quaternion.Euler(0, 0, sign * UnityEngine.Random.Range(lightDegrees, 100)) * transform.up);
         r = Physics2D.Raycast(transform.position, direction.normalized);
 
         if (r.distance > 3.5f)
         {
 
-            spawner.SpawanEnemy(transform.position + (direction.normalized * Random.Range(3f, 4f)));
+            spawner.SpawanEnemy(transform.position + (direction.normalized * UnityEngine.Random.Range(3f, 4f)));
             return true;
         }
         else
@@ -110,7 +112,7 @@ public class SanityController : MonoBehaviour
                 {
                     if (OnTimerElapsed())
                     {
-                        spawnTimer.SetCooldownTime(Random.Range(currentSanity / 100 * 1.2f, currentSanity / 100 * 7f));
+                        spawnTimer.SetCooldownTime(UnityEngine.Random.Range(currentSanity / 100 * 1.2f, currentSanity / 100 * 7f));
                         spawnTimer.startTimer();
                     }
                 }

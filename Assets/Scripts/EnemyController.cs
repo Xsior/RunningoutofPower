@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     float cryVolume = 1f;
 
-
+    public ParticleSystem blood;
 
     float Hp
     {
@@ -92,7 +92,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         ded = false;
-        GetComponent<SpriteRenderer>().enabled = true;
         player = GameObject.FindGameObjectWithTag("Player");
         attackCooldown = GetComponent<Cooldown>();
         hp = startingHp;
@@ -179,5 +178,6 @@ public class EnemyController : MonoBehaviour
     public void DealDamage(float damage)
     {
         Hp -= damage;
+        blood.Play();
     }
 }

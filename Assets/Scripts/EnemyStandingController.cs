@@ -19,6 +19,8 @@ public class EnemyStandingController : MonoBehaviour
     public AudioSource enemyScream;
     public AudioSource enemyCry;
 
+    public ParticleSystem blood;
+
     bool ded = false;
 
     float cryVolume = 1f;
@@ -142,5 +144,6 @@ public class EnemyStandingController : MonoBehaviour
     public void DealDamage(float damage)
     {
         Hp -= damage;
+        blood.Play();
     }
 }

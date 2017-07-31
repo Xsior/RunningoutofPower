@@ -30,7 +30,7 @@ public class KeyController : MonoBehaviour
                 KeyCollector.AddKey(keyId);
                 KeyCollector.VerboseKeys();
                 if (keyAnim != null)
-                    keyAnim.gameObject.SetActive(true);
+                    keyAnim.SetActive(true);
             }
         }
 

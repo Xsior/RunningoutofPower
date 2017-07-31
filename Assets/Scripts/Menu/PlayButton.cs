@@ -9,6 +9,6 @@ public class PlayButton : Button {
     {
         base.OnMouseDown();
 
-        EditorSceneManager.LoadScene("main");
+        EditorSceneManager.LoadScene("NowyLevel");
     }
 }

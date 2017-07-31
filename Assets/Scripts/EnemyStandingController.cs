@@ -14,6 +14,15 @@ public class EnemyStandingController : MonoBehaviour
     float attackDamage = 10;
     float hp;
     float speeedboost = 1f;
+
+    public AudioSource audioSource;
+    public AudioSource enemyScream;
+    public AudioSource enemyCry;
+
+    bool ded = false;
+
+    float cryVolume = 1f;
+
     float Hp
     {
         get { return hp; }
@@ -90,7 +99,20 @@ public class EnemyStandingController : MonoBehaviour
         else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
+    public IEnumerator playSoundToEnd()
+    {
+        ded = true;
+        GetComponent<Animator>().SetTrigger("Die");
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
+        enemyScream.Play();
+        yield return new WaitForSeconds(1.25f);
 
+        enabled = false;
+        gameObject.SetActive(false);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

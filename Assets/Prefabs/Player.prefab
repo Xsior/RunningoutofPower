@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 81137183565735258}
   - component: {fileID: 114706118575583786}
   - component: {fileID: 114298669032986480}
+  - component: {fileID: 114553975771927998}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1054,7 +1055,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248582741500692}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!82 &82463622940922760
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1649,7 +1650,7 @@ MonoBehaviour:
   sanityBar: {fileID: 0}
   sanityLightRatio: 1
   sanityEnemyRatio: 1
-  spawnTimer: {fileID: 114298669032986480}
+  spawnTimer: {fileID: 114553975771927998}
   dmgParticle: {fileID: 198167936371210168}
 --- !u!114 &114448091668208586
 MonoBehaviour:
@@ -1678,6 +1679,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerValue: 0
   canUse: 0
+  cooldownTime: 0
+--- !u!114 &114553975771927998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 1
   cooldownTime: 0
 --- !u!114 &114556546569184606
 MonoBehaviour:

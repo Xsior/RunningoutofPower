@@ -76,13 +76,13 @@ GameObject:
   - component: {fileID: 61226067791303230}
   - component: {fileID: 114425538130474284}
   - component: {fileID: 114497816084976394}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: EnemyStanding
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1935644752340876
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887677735768608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -78.12301, y: -85.24673, z: 0}
+  m_LocalPosition: {x: 98.544266, y: 47.169327, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4857649356727014}

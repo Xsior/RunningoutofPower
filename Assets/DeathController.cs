@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class DeathController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("MainMenu");
         player.SetActive(false);
     }
 

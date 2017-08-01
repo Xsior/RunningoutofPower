@@ -11,6 +11,7 @@ public class DoorController : MonoBehaviour
     public bool doorStatus = false; // true == otwarte, false == zamknięte
     float smallTimer = 0;
     public GameObject UIText;
+    public GameObject red,blue,green,gold;
 
     [SerializeField] private Sprite opened, closed;
     void Start()
@@ -21,6 +22,23 @@ public class DoorController : MonoBehaviour
     {
         if (smallTimer > 0)
             smallTimer -= Time.deltaTime;
+
+        if(keyNeeded == 1 && doorStatus == true)
+        {
+            red.SetActive(false);
+        }
+        if (keyNeeded == 2 && doorStatus == true)
+        {
+            gold.SetActive(false);
+        }
+        if (keyNeeded == 3 && doorStatus == true)
+        {
+            green.SetActive(false);
+        }
+        if (keyNeeded == 4 && doorStatus == true)
+        {
+            blue.SetActive(false);
+        }
     }
     /* public void OnTriggerEnter2D(Collider2D coll)
      {

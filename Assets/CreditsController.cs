@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CreditsController : MonoBehaviour {
@@ -10,7 +10,7 @@ public class CreditsController : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape))
         {
-            EditorSceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenu");
         }
 	}
 }

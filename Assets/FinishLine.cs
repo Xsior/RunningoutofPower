@@ -14,6 +14,7 @@ public class FinishLine : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            KeyCollector.ResetKeys();
             image.DOFade(1, 1).OnComplete(() => SceneManager.LoadScene("MainMenu") );
         }
         

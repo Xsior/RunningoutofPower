@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 114706118575583786}
   - component: {fileID: 114298669032986480}
   - component: {fileID: 114553975771927998}
+  - component: {fileID: 114272858012613562}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -304,6 +305,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4033511955820740}
+  - component: {fileID: 61538981994209566}
+  - component: {fileID: 114649143820352602}
+  - component: {fileID: 114674518233868202}
+  - component: {fileID: 114619863280080762}
+  - component: {fileID: 114787202086492768}
+  - component: {fileID: 114338950462558170}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -941,7 +948,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1023,6 +1030,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.38078582, y: 0.39210838}
+  m_EdgeRadius: 0
+--- !u!61 &61538981994209566
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785583386956788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.61}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
 --- !u!61 &61686965837493524
 BoxCollider2D:
@@ -1124,7 +1156,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1205,7 +1237,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1286,7 +1318,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1539,7 +1571,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248582741500692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a18412c82373a8478953d51680024e6, type: 3}
   m_Name: 
@@ -1555,6 +1587,20 @@ MonoBehaviour:
   weapons: {fileID: 4033511955820740}
   dmg: {fileID: 11400000, guid: 6a638ff665b3e3447966b6be824c2f78, type: 2}
   currentWeapon: 0
+--- !u!114 &114272858012613562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248582741500692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 1
+  cooldownTime: 0
 --- !u!114 &114298669032986480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1586,6 +1632,28 @@ MonoBehaviour:
   Material: {fileID: 2100000, guid: 0a8c132f813f5514b9f5b48ff3956482, type: 2}
   GameSpriteRenderer: {fileID: 212484183393246138}
   AdditiveColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114338950462558170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785583386956788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a18412c82373a8478953d51680024e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EquippedWeapon: {fileID: 0}
+  currentCooldown: {fileID: 0}
+  triggeredEnemy: {fileID: 0}
+  Cooldowns: {fileID: 11400000, guid: 76e8f940055e99b44afa9e3ba5b41f9e, type: 2}
+  hasPistol: 0
+  hasShotgun: 0
+  hasHammer: 0
+  animHammer: {fileID: 95124185790592578}
+  weapons: {fileID: 4033511955820740}
+  dmg: {fileID: 11400000, guid: 6a638ff665b3e3447966b6be824c2f78, type: 2}
+  currentWeapon: 0
 --- !u!114 &114342632537016594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1646,11 +1714,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSanity: 100
-  sanityLostAmount: 1
+  sanityLostAmount: 0.5
   sanityBar: {fileID: 0}
   sanityLightRatio: 1
   sanityEnemyRatio: 1
-  spawnTimer: {fileID: 114553975771927998}
+  spawnTimer: {fileID: 114272858012613562}
   dmgParticle: {fileID: 198167936371210168}
 --- !u!114 &114448091668208586
 MonoBehaviour:
@@ -1725,6 +1793,20 @@ MonoBehaviour:
   timerValue: 0
   canUse: 1
   cooldownTime: 0
+--- !u!114 &114619863280080762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785583386956788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 0
+  cooldownTime: 0
 --- !u!114 &114632295323433074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1738,6 +1820,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerValue: 0
   canUse: 1
+  cooldownTime: 0
+--- !u!114 &114649143820352602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785583386956788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 0
   cooldownTime: 0
 --- !u!114 &114659920265332888
 MonoBehaviour:
@@ -1766,6 +1862,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerValue: 0
   canUse: 1
+  cooldownTime: 0
+--- !u!114 &114674518233868202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785583386956788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 0
   cooldownTime: 0
 --- !u!114 &114706118575583786
 MonoBehaviour:
@@ -1840,6 +1950,20 @@ MonoBehaviour:
   timerValue: 0
   canUse: 0
   cooldownTime: 0
+--- !u!114 &114787202086492768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785583386956788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ee03005bf68584a860974ebe5a230c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerValue: 0
+  canUse: 0
+  cooldownTime: 0
 --- !u!114 &114892956730953310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1879,7 +2003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651c37fa9d0f8ff46aad7af63d429450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.1
+  speed: 1.2
   wait: 1
 --- !u!114 &114970041196840642
 MonoBehaviour:
